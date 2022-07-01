@@ -1,18 +1,18 @@
         .ui-steps .ui-steps-item {
             width: 25%;
         }
-        
+
         .ui-steps.steps-custom {
             margin-bottom: 30px;
         }
-        
+
         .ui-steps.steps-custom .ui-steps-item .ui-menuitem-link {
             padding: 0 1em;
             overflow: visible;
         }
-        
+
         .ui-steps.steps-custom .ui-steps-item .ui-steps-number {
-             background: #c1ddcc;  
+            background: #c1ddcc;
             color: #FFFFFF;
             display: inline-block;
             width: 36px;
@@ -20,35 +20,34 @@
             margin-top: -14px;
             margin-bottom: 10px;
         }
-        
+
         .ui-steps.steps-custom .ui-steps-item .ui-steps-title {
             color: #555555;
         }
-    
+
 
         span.p-steps-number {
             color: #0b3d1d !important;
-           /* background-color: #c1ddcc !important; */
+            /* background-color: #c1ddcc !important; */
         }
 
 
-        /* .p-steps .p-steps-item .p-menuitem-link:not(.p-disabled):focus {
+        .p-steps .p-steps-item .p-menuitem-link:not(.p-disabled):focus {
             outline: 0 none;
             outline-offset: 0;
             box-shadow: 0 0 0 0.2rem #c1ddcc !important;
-        } */
+        }
 
 
         .p-steps .p-steps-item.p-highlight .p-steps-number {
-            background: #c1ddcc;           
+            background: #c1ddcc;
         }
 
-        /* .p-card .p-card-body {
-            padding: 1.25rem;
-            width: 500px;
-        } */
+        /* .p-steps:hover {
+            box-shadow: 0 0 0 0.2rem #c1ddcc !important;
+        }
 
-     
+      */
         .p-button {
             color: #ffffff;
             background-color: var(--green-700) !important;
@@ -58,17 +57,49 @@
             transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
             border-radius: 6px;
         }
-        
+
         .p-button:hover {
             border-color: var(--green-900) !important;
         }
-        
-        .voltar .p-button{
+
+        .voltar .p-button {
             color: white !important;
-            background-color: black!important;
-            border: 1px solid black!important;
+            background-color: black !important;
+            border: 1px solid black !important;
             padding: 0.75rem 1.25rem;
             font-size: 1rem;
             transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
             border-radius: 6px;
+        }
+
+
+        .p-checkbox .p-checkbox-box.p-highlight {
+            border-color: #c1ddcc !important;
+            background: #c1ddcc !important;
+        }
+
+        .p-checkbox .p-checkbox-box.p-highlight:hover {
+            border-color: var(--green-900) !important;
+        }
+
+
+        .p-inputtext:enabled:hover {
+            box-shadow:  0 0 0 0.2rem #c1ddcc !important;
+            border-color: #c1ddcc !important;
+        }
+
+        .p-inputtext:enabled:focus {
+            box-shadow:  0 0 0 0.1rem var(--green-700) !important;
+            border-color: var(--green-400) !important
+        }
+       
+        .p-checkbox:not(.p-disabled) .p-checkbox-box.p-focus {
+            outline: 0 none;
+            outline-offset: 0;
+            box-shadow: 0 0 0 0.2rem #c1ddcc !important;
+            border-color: var(--green-900) !important;
+        }
+
+        .p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box:hover {
+            border-color: var(--green-900) !important;
         }
