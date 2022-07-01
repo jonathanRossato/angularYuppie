@@ -1,0 +1,72 @@
+
+
+
+<div class="steps-content">
+    <p-card>
+        <ng-template pTemplate="title">
+            Preencha as informações abaixo.
+        </ng-template>
+        <ng-template pTemplate="subtitle">
+            Em seguida precione o botão de continuar.
+        </ng-template>
+        <ng-template pTemplate="content">
+            <div class="align-content-center">
+
+                <div class="field align-content-center w-20 ">
+                    <label class="font-bold text-center border-round" for="estudaGrupo">Clima:</label>
+                    <div class=" text-center border-round" id="climaGrupo">
+                        <div class="flex">
+                            <p-checkbox class="p-2" name="climaGrupo" value="NubladoComSol" label="Nublado com sol"
+                                [(ngModel)]="valoresClima"></p-checkbox>
+                            <i class="pi pi-cloud text-cyan-600 mr-2"></i>
+                            <i class="pi pi-sun text-yellow-600"></i>
+                        </div>
+
+                        <div class="flex">
+                            <p-checkbox class="p-2" name="climaGrupo" value="NubladoSemSol" label="Nublado sem sol"
+                            [(ngModel)]="valoresClima"></p-checkbox>
+                            <i class="pi pi-cloud text-cyan-600"></i>                        
+                        </div>
+                     
+                        <div class="flex">
+                            <p-checkbox class="p-2" name="climaGrupo" value="Ensolarado" label="Ensolarado"
+                            [(ngModel)]="valoresClima"></p-checkbox>
+                            <i class="pi pi-sun text-yellow-600"></i>                 
+                        </div>
+                       
+                        <div class="flex">
+                            <p-checkbox class="p-2" name="climaGrupo" value="Chuvoso" label="Chuvoso"
+                            [(ngModel)]="valoresClima"></p-checkbox>
+                            <i class="pi pi-cloud-download text-cyan-600"></i>                 
+                        </div>
+                       
+                    </div>
+                </div>
+                <div class="field align-content-center w-5 ">
+                    <label class="font-bold text-center border-round" for="estudaGrupo">Temperatura:</label>
+                    <div class=" flex text-center border-round " id="temperaturaG">
+                         <p-inputNumber  [(ngModel)]="temperatura" prefix="↑ " suffix="℃" [min]="-15" [max]="50"></p-inputNumber>
+                         <i class="pi pi-sun text-yellow-600  ml-2 mt-2"style="font-size: 2rem" ></i>    
+                    </div>
+                </div>
+                <div class="field align-content-center w-5 ">
+                    <label class="font-bold text-center border-round" for="estudaGrupo">Umidade do Ar:</label>
+                    <div class=" flex text-center border-round " id="temperaturaG">
+                        <p-inputNumber [(ngModel)]="umidade" prefix="%"></p-inputNumber>
+                        <i class="pi pi-cloud text-cyan-600 ml-2 mt-2" style="font-size: 2rem"></i>       
+                    </div>
+                </div>
+
+            </div>
+        </ng-template>
+
+        <ng-template pTemplate="footer">
+            <div class="flex">
+                <div class="voltar flex-grow-1 flex align-items-center justify-content-center ">  <p-button label="Voltar" icon="pi pi-angle-left"  routerLink="/formulario/estufa" iconPos="left"></p-button></div>            
+                <div class="flex-shrink-1 md:flex-shrink-0 flex"></div>
+                <div class="flex-grow-1 flex align-items-start justify-content-center ">  <p-button label="Continuar" icon="pi pi-angle-right"  routerLink="/formulario/pulso" iconPos="right"></p-button></div>
+            </div>
+        </ng-template>
+
+    </p-card>
+</div>

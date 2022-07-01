@@ -1,0 +1,30 @@
+
+/* 
+.tabMenuStyle {
+    background: #ffffff;
+    border-color: #188a42  !important;
+    color: #188a42 !important;
+}
+
+#tabstrip .ui-state-default {
+    background: white !important;
+    border-color: #188a42  !important;
+    color: #188a42 !important;
+}
+
+body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-active {
+    border-color: #188a42  !important;
+    color: #188a42 !important;
+} */
+
+
+a.p-ripple.p-element.p-menuitem-link.p-menuitem-link-active {
+    border-color: #188a42 !important;
+    color: #188a42 !important;
+}
+
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link:not(.p-disabled):focus {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: inset 0 0 0 0.2rem #c1ddcc !important;
+}
