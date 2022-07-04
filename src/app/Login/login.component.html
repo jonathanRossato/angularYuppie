@@ -1,0 +1,29 @@
+<div class="login-screen col-12 col-offset-3 flex-shrink-1 row surface-card p-4 shadow-2 border-round w-full lg:w-6 loginBg"
+    id="carLogin">
+    <p-card class="align-items-center justify-content-center font-semibold ">
+        <ng-template pTemplate="header">
+            <div class="text-center mb-5">
+                <img src="assets/image/yuppie.png" alt="Image" class="imgYuppie">
+                <span class="block text-2xl font-bold mb-1">Bem-vindo ao formulário: </span>
+                <div class="text-2xl  font-bold mb-3 text-green-800">B3 Agrotech</div>
+            </div>
+
+        </ng-template>
+        <div class="field grid">
+            <label for="emailLogin" class="block text-900 font-medium mb-2">Email</label>
+            <input id="emailLogin" type="text" pInputText class="block text-900 font-medium w-full mb-3">
+
+        </div>
+
+        <div class="field grid">
+            <label for="senhaLogin" class="block text-900 font-medium mb-2">Senha</label>            
+            <input id="senhaLogin" type="password"   pInputText class="block text-900 font-medium w-full mb-3">
+        </div>
+
+        <ng-template pTemplate="footer">
+            <button pButton pRipple label="Entrar" routerLink="/inicio" icon="pi pi-check"
+                class="w-full hover:border-green-900 border-green-700 bg-green-700  mr-3 p-button-raised"></button>
+        </ng-template>
+    </p-card>
+</div>
+

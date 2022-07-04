@@ -1,0 +1,33 @@
+.login-screen{
+    background-image: url('/assets/image/loginbg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:  center;
+
+
+  
+}
+
+#cardLogin {            
+    /* background-image: linear-gradient(0deg, rgba(30, 70, 0, 0.88), 
+        rgba(0, 0, 0, 0.88)) , 
+        url("../../assets/image/loginbg.jpg") center center / cover no-repeat; */
+        background-image: url('/assets/image/loginbg.jpg');
+    background-size: 100% ;  
+    background-size: cover;      
+}  
+
+
+      :host ::ng-deep .p-password input {
+        width: 15rem;
+      }
+   
+
+      .imgYuppie{
+        background-size: 30% ;  
+        background-size: cover;      
+      }
+
+      img.imgYuppie {
+        width: 30%;
+    }

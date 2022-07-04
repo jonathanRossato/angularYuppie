@@ -4,7 +4,7 @@
             Preencha as informações abaixo.
         </ng-template>
         <ng-template pTemplate="subtitle">
-            Em seguida precione o botão de continuar.
+            Em seguida clique no botão de continuar.
         </ng-template>
         <ng-template pTemplate="flex content ">
             <div class="flex-grow-1 formgroup-inline "> 
@@ -71,15 +71,13 @@
         </ng-template>
 
     
-            <ng-template pTemplate="footer">
-                <div class="flex">
-                    <div class="voltar flex-grow-1 flex align-items-center justify-content-center ">  <p-button label="Voltar" icon="pi pi-angle-left"  routerLink="/formulario/pulso" iconPos="left"></p-button></div>            
-                    <div class="flex-shrink-1 md:flex-shrink-0 flex"></div>
-                    <div class="flex-grow-1 flex align-items-start justify-content-center ">  <p-button label="Enviar" icon="pi pi-angle-right"  routerLink="/inicio" iconPos="right"></p-button></div>
+        <ng-template pTemplate="footer">
+            <div class="flex">
+                <div class="voltar flex-grow-1 flex align-items-center justify-content-center ">  <p-button label="Voltar" icon="pi pi-angle-left"  routerLink="/formulario/pulso" iconPos="left"></p-button></div>            
+                <div class="flex-shrink-1 md:flex-shrink-0 flex"></div>
+                <div class="flex-grow-1 flex align-items-start justify-content-center ">  <p-button label="Continuar" icon="pi pi-angle-right"   (click)="btnContinuar()"  iconPos="right"></p-button></div>
             </div>
-            </ng-template>
-
-   
-
+        </ng-template>
+        <p-toast position="top-right"></p-toast>
     </p-card>
 </div>

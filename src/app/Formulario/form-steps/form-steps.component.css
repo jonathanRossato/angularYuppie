@@ -96,10 +96,24 @@
         .p-checkbox:not(.p-disabled) .p-checkbox-box.p-focus {
             outline: 0 none;
             outline-offset: 0;
-            box-shadow: 0 0 0 0.2rem #c1ddcc !important;
+            box-shadow: 0 0 0 0.2rem rgb(192, 221, 204) !important;
             border-color: var(--green-900) !important;
         }
 
         .p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box:hover {
             border-color: var(--green-900) !important;
         }
+
+
+        #cardPrincipal {            
+          
+            /* background-image: url("../../../assets/image/tomato.jpg");   */
+            background: linear-gradient(0deg, rgba(30, 70, 0, 0.88), 
+                rgba(0, 0, 0, 0.88)), 
+                url("../../../assets/image/agrotech.jpg") center center / cover no-repeat;
+            background-size: 100% ;  
+            background-size: cover;  
+       
+            
+        }  
+      
