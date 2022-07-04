@@ -116,4 +116,6 @@
        
             
         }  
-      
+        div#cardPrincipal {
+            height: 850px;
+        }

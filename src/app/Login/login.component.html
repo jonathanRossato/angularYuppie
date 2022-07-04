@@ -21,9 +21,15 @@
         </div>
 
         <ng-template pTemplate="footer">
-            <button pButton pRipple label="Entrar" routerLink="/inicio" icon="pi pi-check"
+            <button pButton pRipple label="Entrar" (click)="btnEntrar()" icon="pi pi-check"
                 class="w-full hover:border-green-900 border-green-700 bg-green-700  mr-3 p-button-raised"></button>
         </ng-template>
     </p-card>
 </div>
+
+<div class="my-container">
+    <ng-template #customLoadingTemplate>
+     
+    </ng-template>
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading>  
 

@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { HttpClientModule} from '@angular/common/http';
 
 //Components
 import { FormStepsComponent } from './Formulario/form-steps/form-steps.component';
@@ -17,6 +17,7 @@ import { FormPulsoComponent } from './Formulario/form-pulso/form-pulso.component
 import { FormVolumeComponent } from './Formulario/form-volume/form-volume.component';
 import { LoginComponent } from './Login/login.component';
 import { AuthenticationComponent } from './Authentication/authentication.component';
+import { LoginService } from './Login/login.service';
 
 //PrimeNg
 import {CalendarModule} from 'primeng/calendar';
@@ -31,10 +32,13 @@ import {TabMenuModule} from 'primeng/tabmenu';
 import {ImageModule} from 'primeng/image';
 import {ChipsModule} from 'primeng/chips';
 import { PasswordModule } from "primeng/password";
-
-
-
 import {InputTextModule} from 'primeng/inputtext';
+
+//loading
+import { NgxLoadingModule } from 'ngx-loading';
+
+
+
 
 @NgModule({
   declarations: [
@@ -50,13 +54,16 @@ import {InputTextModule} from 'primeng/inputtext';
     AuthenticationComponent    
   ],
   imports: [
+    HttpClientModule,
     BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
     CalendarModule,FormsModule,CheckboxModule,InputNumberModule,StepsModule,ToastModule,
-    MessagesModule,MessageModule,CardModule,TabMenuModule,ImageModule,ChipsModule,PasswordModule,InputTextModule
+    MessagesModule,MessageModule,CardModule,TabMenuModule,ImageModule,ChipsModule,PasswordModule,InputTextModule,
+    NgxLoadingModule.forRoot({}) 
     
   ],  
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [HttpClientModule,LoginService]
 })
 export class AppModule { }
