@@ -1,17 +1,20 @@
 <app-tab-menu></app-tab-menu>   
 
 
-<div class="grid grid-nogutter surface-section text-800">
-    <div class="col-12 md:col-6 p-6 text-center md:text-left flex align-items-center ">
+<div class="mt-8 grid grid-nogutter surface-section text-900  shadow-8 cardInicio">
+    <div class="col-12 md:col-6 p-6 text-center md:text-left flex align-items-center  ">
         <section>
-            <span class="block text-6xl font-bold mb-1">Bem-vindo ao formulário Yuppie: </span>
-            <div class="text-6xl  font-bold mb-3 text-green-700">B3 Agrotech</div>            
-            <p class="mt-0 mb-4 text-700 line-height-3">clique no botão para iniciar!</p>            
-            <button routerLink="/formulario/estufa" onClick="irFormulario()"pButton pRipple label="Iniciar" type="button" class="hover:border-green-900 border-green-700 bg-green-700  mr-3 p-button-raised" routerLinkActive="active"></button>   
+            <span class="block text-6xl font-bold mb-1">Bem-vindo ao formulário: </span>
+            <div class="text-6xl  text-center font-bold mb-3 text-green-700">B3 Agrotech</div>            
+            <p class="mt-5 mb-2 ml-4 text-center text-700 line-height-3 ">Clique no botão para iniciar!</p>            
+            <button routerLink="/formulario/estufa" onClick="irFormulario()"pButton pRipple label="Iniciar" type="button" 
+            class="  align-items-center col-12 hover:border-green-900 border-green-700 bg-green-700   p-button-raised" routerLinkActive="active"></button>   
            
         </section>
     </div>
-    <div class="col-12 md:col-6 overflow-hidden">
-        <img src="assets/image/tomato.jpg" alt="Image" class="p-image-mask w-min h-screen" style="clip-path: polygon(8% 0, 100% 0%, 100% 100%, 0 100%)">
+    <div class="sm:hidden md:block md:col-6 md:overflow-hidden">
+        <img src="assets/image/tomato.jpg" alt="Image" class="p-image-mask w-min h-screen" style="clip-path: polygon(50% 0, 100% 0%, 100% 150%, 0 50%)">
     </div>
 </div>
+
+<!-- polygon(50% 0, 100% 0%, 100% 150%, 0 50%) -->

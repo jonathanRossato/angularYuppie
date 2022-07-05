@@ -7,75 +7,84 @@
             Em seguida clique no botão de continuar.
         </ng-template>
         <ng-template pTemplate="flex content ">
-            <div class="flex-grow-1 formgroup-inline "> 
-                 <div class="field   ">
-                <label class="font-bold text-center border-round" for=" volumeGrupo">Volume Injetado:</label>
-                <div class="flex text-center border-round ">
-                    <p-inputNumber [(ngModel)]="volumeInjetado" mode="decimal" locale="pt-BR"
-                        [minFractionDigits]="3"></p-inputNumber>
-                        <i class="pi pi-angle-double-down text-green-500  ml-2 mt-2"style="font-size: 2rem" ></i>    
+            <div class="flex-grow-1 formgroup-inline ">
+                <div class="field   ">
+                    <label class="font-bold text-center border-round" for=" volumeGrupo">Volume Injetado:</label>
+                    <div class="flex text-center border-round ">
+                        <p-inputNumber [(ngModel)]="volumeInjetado" mode="decimal" locale="pt-BR"
+                            [minFractionDigits]="3"></p-inputNumber>
+                        <i class="pi pi-angle-double-down text-green-500  ml-2 mt-2" style="font-size: 2rem"></i>
+                    </div>
+                </div>
+                <div class="field   ">
+                    <label class="font-bold text-center border-round" for=" volumeGrupo">EC Injetado:</label>
+                    <div class="flex text-center border-round ">
+                        <p-inputNumber [(ngModel)]="ecInjetado" mode="decimal" locale="pt-BR" [minFractionDigits]="1">
+                        </p-inputNumber>
+                        <i class="pi pi-angle-double-down text-green-500  ml-2 mt-2" style="font-size: 2rem"></i>
+                    </div>
+                </div>
+                <div class="field   ">
+                    <label class="font-bold text-center border-round" for=" volumeGrupo">PH Injetado:</label>
+                    <div class="flex text-center border-round ">
+                        <p-inputNumber [(ngModel)]="phInjetado" mode="decimal" locale="pt-BR" [minFractionDigits]="1">
+                        </p-inputNumber>
+                        <i class="pi pi-angle-double-down text-green-500  ml-2 mt-2" style="font-size: 2rem"></i>
+                    </div>
                 </div>
             </div>
-            <div class="field   ">
-                <label class="font-bold text-center border-round" for=" volumeGrupo">EC Injetado:</label>
-                <div class="flex text-center border-round ">
-                    <p-inputNumber [(ngModel)]="ecInjetado" mode="decimal" locale="pt-BR" [minFractionDigits]="1"></p-inputNumber>
-                    <i class="pi pi-angle-double-down text-green-500  ml-2 mt-2"style="font-size: 2rem" ></i>  
-                </div>
-            </div>
-            <div class="field   ">
-                <label class="font-bold text-center border-round" for=" volumeGrupo">PH Injetado:</label>
-                <div class="flex text-center border-round ">
-                    <p-inputNumber [(ngModel)]="phInjetado" mode="decimal" locale="pt-BR" [minFractionDigits]="1">
-                    </p-inputNumber>
-                    <i class="pi pi-angle-double-down text-green-500  ml-2 mt-2"style="font-size: 2rem" ></i>  
-                </div>
-            </div>
-        </div>
 
-            <div class="formgroup-inline "> 
+            <div class="formgroup-inline ">
                 <div class="field">
-                <label class="font-bold text-center border-round" for=" volumeGrupo">Volume Drenado:</label>
-                <div class="flex text-center border-round ">
-                    <p-inputNumber [(ngModel)]="volumeDrenado" mode="decimal" locale="pt-BR"
-                        [minFractionDigits]="3"></p-inputNumber>
-                        <i class="pi pi-angle-double-up text-red-500  ml-2 mt-2"style="font-size: 2rem" ></i>  
+                    <label class="font-bold text-center border-round" for=" volumeGrupo">Volume Drenado:</label>
+                    <div class="flex text-center border-round ">
+                        <p-inputNumber [(ngModel)]="volumeDrenado" mode="decimal" locale="pt-BR"
+                            [minFractionDigits]="3"></p-inputNumber>
+                        <i class="pi pi-angle-double-up text-red-500  ml-2 mt-2" style="font-size: 2rem"></i>
+                    </div>
                 </div>
-            </div>
-            <div class="field  ">
-                <label class="font-bold text-center border-round" for=" volumeGrupo">Percentual Drenado:</label>
-                <div class="flex text-center border-round ">
-                    <p-inputNumber [(ngModel)]="percDrenado" prefix="%"></p-inputNumber>
-                    <i class="pi pi-angle-double-up text-red-500  ml-2 mt-2"style="font-size: 2rem" ></i>
+                <div class="field  ">
+                    <label class="font-bold text-center border-round" for=" volumeGrupo">Percentual Drenado:</label>
+                    <div class="flex text-center border-round ">
+                        <p-inputNumber [(ngModel)]="percDrenado" prefix="%"></p-inputNumber>
+                        <i class="pi pi-angle-double-up text-red-500  ml-2 mt-2" style="font-size: 2rem"></i>
+                    </div>
                 </div>
-            </div>
-            <div class="field   ">
-                <label class="font-bold text-center border-round" for=" volumeGrupo">EC Drenado:</label>
-                <div class="flex text-center border-round ">
-                    <p-inputNumber [(ngModel)]="ecDrenado" mode="decimal" locale="pt-BR" [minFractionDigits]="1"></p-inputNumber>
-                    <i class="pi pi-angle-double-up text-red-500  ml-2 mt-2"style="font-size: 2rem" ></i>
+                <div class="field   ">
+                    <label class="font-bold text-center border-round" for=" volumeGrupo">EC Drenado:</label>
+                    <div class="flex text-center border-round ">
+                        <p-inputNumber [(ngModel)]="ecDrenado" mode="decimal" locale="pt-BR" [minFractionDigits]="1">
+                        </p-inputNumber>
+                        <i class="pi pi-angle-double-up text-red-500  ml-2 mt-2" style="font-size: 2rem"></i>
+                    </div>
                 </div>
-            </div>
-          
 
-        </div>
-        <div class="field   ">
-            <label class="font-bold text-center border-round" for=" volumeGrupo">PH Drenado:</label>
-            <div class="flex text-center border-round ">
-                <p-inputNumber [(ngModel)]="phDrenado" mode="decimal" locale="pt-BR" [minFractionDigits]="1">
-                </p-inputNumber>
-                <i class="pi pi-angle-double-up text-red-500  ml-2 mt-2"style="font-size: 2rem" ></i>
-            </div></div>
-        
-           
+
+            </div>
+            <div class="field lg:col-offset-4">
+                <label class="font-bold text-center border-round" for=" volumeGrupo">PH Drenado:</label>
+                <div class="flex text-center border-round ">
+                    <p-inputNumber [(ngModel)]="phDrenado" mode="decimal" locale="pt-BR" [minFractionDigits]="1">
+                    </p-inputNumber>
+                    <i class="pi pi-angle-double-up text-red-500  ml-2 mt-2" style="font-size: 2rem"></i>
+                </div>
+            </div>
+
+
         </ng-template>
 
-    
+
         <ng-template pTemplate="footer">
             <div class="flex">
-                <div class="voltar flex-grow-1 flex align-items-center justify-content-center ">  <p-button label="Voltar" icon="pi pi-angle-left"  routerLink="/formulario/pulso" iconPos="left"></p-button></div>            
+                <div class="voltar flex-grow-1 flex align-items-center justify-content-center ">
+                    <p-button label="Voltar" icon="pi pi-angle-left" routerLink="/formulario/pulso" iconPos="left">
+                    </p-button>
+                </div>
                 <div class="flex-shrink-1 md:flex-shrink-0 flex"></div>
-                <div class="flex-grow-1 flex align-items-start justify-content-center ">  <p-button label="Continuar" icon="pi pi-angle-right"   (click)="btnContinuar()"  iconPos="right"></p-button></div>
+                <div class="flex-grow-1 flex align-items-start justify-content-center ">
+                    <p-button label="Continuar" icon="pi pi-angle-right" (click)="btnContinuar()" iconPos="right">
+                    </p-button>
+                </div>
             </div>
         </ng-template>
         <p-toast position="top-right"></p-toast>

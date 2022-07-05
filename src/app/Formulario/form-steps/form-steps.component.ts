@@ -32,11 +32,11 @@ export class FormStepsComponent {
                 label: 'Clima'    ,
                 routerLink: 'clima'           
             },
-            { label: 'Pulsos'    ,
+            { label: 'Pulso'    ,
               routerLink: 'pulso'              
             },
             {
-                label: 'Volumes' ,
+                label: 'Volume' ,
                 routerLink: 'volume'         
             }
         ];
