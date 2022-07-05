@@ -40,7 +40,7 @@
 
 
         .p-steps .p-steps-item.p-highlight .p-steps-number {
-            background: #c1ddcc;
+            background: var(--green-700);
         }
 
         /* .p-steps:hover {
@@ -96,7 +96,7 @@
         .p-checkbox:not(.p-disabled) .p-checkbox-box.p-focus {
             outline: 0 none;
             outline-offset: 0;
-            box-shadow: 0 0 0 0.2rem rgb(192, 221, 204) !important;
+            box-shadow: 0 0 0 0.2rem  var(--green-700) !important;
             border-color: var(--green-900) !important;
         }
 
@@ -108,14 +108,20 @@
         #cardPrincipal {            
           
             /* background-image: url("../../../assets/image/tomato.jpg");   */
-            background: linear-gradient(0deg, rgba(30, 70, 0, 0.88), 
-                rgba(0, 0, 0, 0.88)), 
+            background: linear-gradient(0deg,  
+                rgba(0, 0, 0, 0.88),var(--green-900)), 
                 url("../../../assets/image/agrotech.jpg") center center / cover no-repeat;
             background-size: 100% ;  
             background-size: cover;  
-       
+            /* background-color: #657b6d8a; */
+
             
         }  
         div#cardPrincipal {
             height: 850px;
+        }
+
+        .border-round.text-white.font-bold.p-3.flex.shadow-8 {
+          
+            background: linear-gradient(150deg,  var(--green-900), rgb(119 119 119));
         }

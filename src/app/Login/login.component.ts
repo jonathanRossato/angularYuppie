@@ -28,8 +28,9 @@ export class LoginComponent implements OnInit {
   realizarLogin(email: string, senha: string) {
        this.loading = true;
        let logar = false;
+       this.router.navigate(['/inicio']);
     this.loginService.VerificarLogin().subscribe(login => {
-      if(login.autorizado)
+       if(login.autorizado)
         this.router.navigate(['/inicio']);
       
     }, err => {
