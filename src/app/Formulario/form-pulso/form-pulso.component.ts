@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import {MessageService} from 'primeng/api';
 import { Router } from '@angular/router';
 import { PrimeNGConfig } from 'primeng/api';
+import { FormService } from '../form.service';
 
 @Component({
   selector: 'app-form-pulso',
   templateUrl: './form-pulso.component.html',
   styleUrls: ['./form-pulso.component.css'],
-  providers: [MessageService]
+  providers: [MessageService,FormService]
 })
 export class FormPulsoComponent implements OnInit {
 

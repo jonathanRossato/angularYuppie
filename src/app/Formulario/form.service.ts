@@ -6,6 +6,7 @@ import { FormModel } from './form-model';
 })
 export class FormService {
 
+  public formPeenchido!: FormModel
   constructor() { }
 
 
@@ -16,6 +17,8 @@ export class FormService {
 
     
     }
+  }
+  getFormularioPreenchido(){
 
   }
 }

@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
 import { PrimeNGConfig } from 'primeng/api';
+import { FormService } from '../form.service';
 @Component({
   selector: 'app-form-volume',
   templateUrl: './form-volume.component.html',
   styleUrls: ['./form-volume.component.css'],
-  providers: [MessageService]
+  providers: [MessageService,FormService]
 })
 export class FormVolumeComponent implements OnInit {
 

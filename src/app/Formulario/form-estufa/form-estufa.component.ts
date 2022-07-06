@@ -2,21 +2,31 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {MessageService} from 'primeng/api';
 import { PrimeNGConfig } from 'primeng/api';
+import { FormService } from '../form.service';
 
 @Component({
   selector: 'app-form-estufa',
   templateUrl: './form-estufa.component.html',
   styleUrls: ['./form-estufa.component.css'],   
-  providers: [MessageService]
+
+  providers: [MessageService,FormService],
+  
 })
 export class FormEstufaComponent implements OnInit {
 
   valoresSelecionadosEstufa: string[] = []; 
   dataHora: Date = new Date();
   
-  constructor(private router: Router,private messageService: MessageService, private primengConfig: PrimeNGConfig) { }
+
+
+  estufaInformation: any;
+  enviado: boolean = false;
+
+
+  constructor(private router: Router,private messageService: MessageService, private primengConfig: PrimeNGConfig, public formService: FormService) {}
 
   ngOnInit(): void {
+    this.estufaInformation = this.formService.getFormularioPreenchido()
     this.primengConfig.ripple = true;
   }
 
@@ -42,8 +52,11 @@ export class FormEstufaComponent implements OnInit {
 
 //TODO: verificar como fazer o snapshot dos valoers ja preenchidos
   validarValoresAnteriores(valor:string){
-    if(this.valoresSelecionadosEstufa.some(x => x === valor)) 
+    if(this.valoresSelecionadosEstufa.some(x => x === valor)){
+      // this.formService.getFormularioPreenchido = this.personalInformation;
       return true 
+    } 
+    
 
       return false
   }

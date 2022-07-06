@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import {MessageService} from 'primeng/api';
 import { Router } from '@angular/router';
 import { PrimeNGConfig } from 'primeng/api';
+import { FormService } from '../form.service';
 @Component({
   selector: 'app-form-clima',
   templateUrl: './form-clima.component.html',
   styleUrls: ['./form-clima.component.css'],
-  providers: [MessageService]
+  providers: [MessageService,FormService]
 })
 export class FormClimaComponent implements OnInit {
   valoresClima:string[] = [];
