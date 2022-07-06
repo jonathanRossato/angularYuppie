@@ -35,6 +35,7 @@ import { PasswordModule } from "primeng/password";
 import {InputTextModule} from 'primeng/inputtext';
 import {TooltipModule} from 'primeng/tooltip';
 import {RippleModule} from 'primeng/ripple';
+import { AuthGuard } from './Authentication/auth.guard';
 
 
 
@@ -64,6 +65,6 @@ import {RippleModule} from 'primeng/ripple';
     
   ],  
   bootstrap: [AppComponent],
-  providers: [HttpClientModule,LoginService]
+  providers: [HttpClientModule,LoginService,AuthGuard]
 })
 export class AppModule { }

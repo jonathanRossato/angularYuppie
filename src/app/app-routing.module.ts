@@ -12,44 +12,82 @@ import { LoginComponent } from './Login/login.component';
 
 const routes: Routes = [
 
+  // {
+  //   path: 'formulario',
+  //   component: FormStepsComponent,
+  //   children: [
+  //     {
+  //       path: 'clima',
+  //       component: FormClimaComponent
+  //     },
+  //     {
+  //       path: 'volume',
+  //       component: FormVolumeComponent
+  //     }
+
+  //     ,
+  //     {
+  //       path: 'estufa',
+  //       component: FormEstufaComponent
+  //     }
+  //     ,
+  //     {
+  //       path: 'pulso',
+  //       component: FormPulsoComponent
+  //     }
+  //   ]
+  // },  
+  // {
+  //   path: 'inicio',
+  //   component: InicioComponent
+  // }
+  // ,
+  // {
+  //   path: 'login',
+  //   component: LoginComponent
+  // }
+  // ,  
+  {
+    path: '',
+    component: LoginComponent    
+  },
+  {
+    path: 'inicio',
+    canActivate: [AuthGuard],
+    component: InicioComponent
+  },
   {
     path: 'formulario',
+    canActivate: [AuthGuard],
     component: FormStepsComponent,
     children: [
       {
         path: 'clima',
+        canActivate: [AuthGuard],
         component: FormClimaComponent
       },
       {
         path: 'volume',
+        canActivate: [AuthGuard],
         component: FormVolumeComponent
       }
-
       ,
       {
         path: 'estufa',
+        canActivate: [AuthGuard],
         component: FormEstufaComponent
       }
       ,
       {
         path: 'pulso',
+        canActivate: [AuthGuard],
         component: FormPulsoComponent
       }
     ]
-  },  
-  {
-    path: 'inicio',
-    component: InicioComponent
-  },  
-  {
-    path: '',
-    component: LoginComponent
   }
-  ,
-  {
-    path: 'login',
-    component: LoginComponent
-  }
+
+
+
 
 ];
 

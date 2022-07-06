@@ -13,13 +13,12 @@ constructor(private router: Router){}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
-      const token = window.localStorage.getItem('token');
+       const autorizado = window.localStorage.getItem('autorizado');
 
-      // if (token) return true
-      // else {
-      //     this.router.navigate(['/login']);
-      //     return false;
-      // }
-      return true;
+      if (autorizado) return true
+      else {
+          this.router.navigate(['/login']);
+          return false;
+      }      
   }
 }

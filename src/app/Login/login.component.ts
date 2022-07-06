@@ -10,38 +10,46 @@ import { PrimeNGConfig } from 'primeng/api';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  public loading = false;
+
   emailLogin: string = '';
   senhaLogin: string = '';
 
-  constructor(private router: Router,private loginService: LoginService,private primengConfig: PrimeNGConfig) { }
+
+  constructor(private router: Router, private loginService: LoginService, private primengConfig: PrimeNGConfig) { }
 
   ngOnInit(): void {
     this.primengConfig.ripple = true;
   }
 
-  btnEntrar() {    
-     if(this.realizarLogin( this.emailLogin,this.senhaLogin)){
-         this.router.navigate(['/inicio']);
-        }
-    
+  btnEntrar() {
+    if (this.realizarLogin(this.emailLogin, this.senhaLogin)) {
+      this.router.navigate(['/inicio']);
+    }
+
   }
   realizarLogin(email: string, senha: string) {
-       this.loading = true;
-       let logar = false;
-       this.router.navigate(['/inicio']);
+    //remover esse parametro após subida da API    
+    localStorage.setItem('autorizado', 'true');
+
+
+    let auth = false
+    this.router.navigate(['/inicio']);
     this.loginService.VerificarLogin().subscribe(login => {
-       if(login.autorizado)
+      if (login.autorizado) {
+        auth = true;
+        localStorage.setItem('autorizado', 'true');
         this.router.navigate(['/inicio']);
-      
+      }
+
+
     }, err => {
       console.log("ocorreu um erro!", err);
     });
-    this.loading = false;
-    return logar;
-  }
- 
 
- 
+    return auth;
+  }
+
+
+
 
 }
