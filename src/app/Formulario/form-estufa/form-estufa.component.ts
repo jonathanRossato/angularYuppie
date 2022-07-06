@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {MessageService} from 'primeng/api';
-
+import { PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'app-form-estufa',
@@ -14,10 +14,10 @@ export class FormEstufaComponent implements OnInit {
   valoresSelecionadosEstufa: string[] = []; 
   dataHora: Date = new Date();
   
-  constructor(private router: Router,private messageService: MessageService) { }
+  constructor(private router: Router,private messageService: MessageService, private primengConfig: PrimeNGConfig) { }
 
   ngOnInit(): void {
-   
+    this.primengConfig.ripple = true;
   }
 
 

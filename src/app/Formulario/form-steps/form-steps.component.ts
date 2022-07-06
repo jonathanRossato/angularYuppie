@@ -1,4 +1,4 @@
-import { Component,OnInit,ViewEncapsulation,NgModule } from '@angular/core';
+import { Component,OnInit,ViewEncapsulation } from '@angular/core';
 import {MenuItem} from 'primeng/api';
 import {MessageService} from 'primeng/api';
 
@@ -14,7 +14,8 @@ import {MessageService} from 'primeng/api';
 export class FormStepsComponent { 
     items!: MenuItem[];
     
-    
+    value: number = 0;
+
     activeIndex: number = 1;
     
 

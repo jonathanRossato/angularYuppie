@@ -77,13 +77,13 @@
         <ng-template pTemplate="footer">
             <div class="flex">
                 <div class="voltar flex-grow-1 flex align-items-center justify-content-center ">
-                    <p-button label="Voltar" icon="pi pi-angle-left" routerLink="/formulario/pulso" iconPos="left">
-                    </p-button>
+                    <button  pButton pRipple label="Voltar" icon="pi pi-angle-left"  class="p-button-raised p-button-secondary" routerLink="/formulario/pulso" iconPos="left"></button>
                 </div>
                 <div class="flex-shrink-1 md:flex-shrink-0 flex"></div>
                 <div class="flex-grow-1 flex align-items-start justify-content-center ">
-                    <p-button label="Continuar" icon="pi pi-angle-right" (click)="btnContinuar()" iconPos="right">
-                    </p-button>
+                    <button pButton pRipple label="Entrar" icon="pi pi-angle-right"
+                        class="p-button-raised p-button-success" (click)="btnContinuar()" iconPos="right">                        
+                    </button>
                 </div>
             </div>
         </ng-template>

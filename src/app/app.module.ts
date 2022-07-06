@@ -33,9 +33,9 @@ import {ImageModule} from 'primeng/image';
 import {ChipsModule} from 'primeng/chips';
 import { PasswordModule } from "primeng/password";
 import {InputTextModule} from 'primeng/inputtext';
+import {TooltipModule} from 'primeng/tooltip';
+import {RippleModule} from 'primeng/ripple';
 
-//loading
-import { NgxLoadingModule } from 'ngx-loading';
 
 
 
@@ -60,7 +60,7 @@ import { NgxLoadingModule } from 'ngx-loading';
     AppRoutingModule,
     CalendarModule,FormsModule,CheckboxModule,InputNumberModule,StepsModule,ToastModule,
     MessagesModule,MessageModule,CardModule,TabMenuModule,ImageModule,ChipsModule,PasswordModule,InputTextModule,
-    NgxLoadingModule.forRoot({}) 
+    TooltipModule,RippleModule
     
   ],  
   bootstrap: [AppComponent],

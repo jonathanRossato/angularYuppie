@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MessageService} from 'primeng/api';
 import { Router } from '@angular/router';
-
+import { PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'app-form-pulso',
@@ -16,10 +16,11 @@ export class FormPulsoComponent implements OnInit {
     pulsos: number = 0;
     tempoPulsos: number = 0;
 
-    constructor(private router: Router,private messageService: MessageService) { }
+    constructor(private router: Router,private messageService: MessageService, private primengConfig: PrimeNGConfig) { }
 
 
   ngOnInit(): void {
+    this.primengConfig.ripple = true;
   }
 
 

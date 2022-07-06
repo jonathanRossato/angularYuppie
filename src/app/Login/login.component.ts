@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EmailValidator } from '@angular/forms';
 import { LoginService } from './login.service';
 import { Router } from '@angular/router';
-
+import { PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'app-login',
@@ -14,9 +14,10 @@ export class LoginComponent implements OnInit {
   emailLogin: string = '';
   senhaLogin: string = '';
 
-  constructor(private router: Router,private loginService: LoginService,) { }
+  constructor(private router: Router,private loginService: LoginService,private primengConfig: PrimeNGConfig) { }
 
   ngOnInit(): void {
+    this.primengConfig.ripple = true;
   }
 
   btnEntrar() {    

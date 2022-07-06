@@ -18,13 +18,22 @@ body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-active {
 } */
 
 
-a.p-ripple.p-element.p-menuitem-link.p-menuitem-link-active {
+/* a.p-ripple.p-element.p-menuitem-link.p-menuitem-link-active {
     border-color: #188a42 !important;
     color: #188a42 !important;
-}
+} */
 
 .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link:not(.p-disabled):focus {
     outline: 0 none;
     outline-offset: 0;
-    box-shadow: inset 0 0 0 0.2rem #c1ddcc !important;
+    box-shadow: inset 0 0 0 0.2rem rgb(63, 46, 48) !important;
+}
+
+a.p-ripple.p-element.p-menuitem-link.p-menuitem-link-active {
+    border-color: #5a4245 !important;
+    color: #5a4245 !important;
+}
+
+.p-tabmenu-nav-container{
+    margin-bottom: 5px;
 }

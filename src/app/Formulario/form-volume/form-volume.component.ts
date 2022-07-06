@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
-
+import { PrimeNGConfig } from 'primeng/api';
 @Component({
   selector: 'app-form-volume',
   templateUrl: './form-volume.component.html',
@@ -20,9 +20,10 @@ export class FormVolumeComponent implements OnInit {
   phInjetado: number = 0;
 
 
-  constructor(private router: Router, private messageService: MessageService) { }
+  constructor(private router: Router, private messageService: MessageService, private primengConfig: PrimeNGConfig) { }
 
   ngOnInit(): void {
+    this.primengConfig.ripple = true;
   }
 
   btnContinuar() {
