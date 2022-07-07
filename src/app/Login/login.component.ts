@@ -29,8 +29,8 @@ export class LoginComponent implements OnInit {
 
   }
   realizarLogin(email: string, senha: string) {
-    //remover esse parametro após subida da API    
-    
+    //remover esse parametro após subida da API
+
 
     if(email == "teste"){
       localStorage.setItem('autorizado', 'true');

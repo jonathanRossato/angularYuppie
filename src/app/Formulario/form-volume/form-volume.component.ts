@@ -21,7 +21,7 @@ export class FormVolumeComponent implements OnInit {
   phInjetado: number = 0;
 
 
-  constructor(private router: Router, private messageService: MessageService, private primengConfig: PrimeNGConfig) { }
+  constructor(private router: Router, private messageService: MessageService, private primengConfig: PrimeNGConfig, private formService: FormService) { }
 
   ngOnInit(): void {
     this.primengConfig.ripple = true;
@@ -61,7 +61,9 @@ export class FormVolumeComponent implements OnInit {
 
   btnContinuar() {
     if (this.validarValoresTela(this.volumeInjetado, this.volumeDrenado, this.percDrenado, this.ecDrenado, this.ecInjetado, this.phDrenado, this.phInjetado)) {
-      this.router.navigate(['/inicio']);
+      this.formService.saveForm();
+      alert('salvou');
+      //this.router.navigate(['/inicio']);
     }
   }
   btnVoltar() {

@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, Input, EventEmitter, ViewEncapsulation } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { MessageService } from 'primeng/api';
-import { Formulario } from '../formulario';
+import { Form } from '../formulario';
 
 import { FormService } from '../form.service';
 // import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
@@ -19,13 +19,13 @@ export class FormStepsComponent {
     value: number = 0;
     activeIndex: number = 1;
 
-   
+
 
 
 
     constructor(public messageService: MessageService, public formService: FormService) {
-       
-     
+
+
     }
 
 
