@@ -6,12 +6,12 @@
         <ng-template pTemplate="subtitle">
             Em seguida clique no botão de continuar.
         </ng-template>
-        <ng-template pTemplate="content">
+        <ng-template pTemplate="content" >
             <div class="align-content-center">
                 <div class="field p-fluid align-content-center ">
                     <label class=" font-bold text-center  border-round  " for="dataHora">Data e Hora:</label>
                     <p-calendar pTooltip="Selecione a Data e Hora" class="border-round  text-center" [inline]="false"
-                        [(ngModel)]="dataHora" [showTime]="true" inputId="dataHora" iconPos="right"></p-calendar>
+                        [(ngModel)]="dataHora" [showTime]="true" inputId="dataHora" name="dataHora"iconPos="right"></p-calendar>
                 </div>
                 <div class="containerEstufa formgroup-inline">
                     <div class="field align-content-center w-20 ">

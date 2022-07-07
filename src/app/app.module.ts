@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule} from '@angular/common/http';
+import { FormService } from './Formulario/form.service';
 
 //Components
 import { FormStepsComponent } from './Formulario/form-steps/form-steps.component';
@@ -39,8 +40,6 @@ import { AuthGuard } from './Authentication/auth.guard';
 
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent,    
@@ -65,6 +64,6 @@ import { AuthGuard } from './Authentication/auth.guard';
     
   ],  
   bootstrap: [AppComponent],
-  providers: [HttpClientModule,LoginService,AuthGuard]
+  providers: [HttpClientModule,LoginService,AuthGuard,FormService]
 })
 export class AppModule { }

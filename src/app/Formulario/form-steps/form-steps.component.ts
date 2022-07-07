@@ -1,8 +1,8 @@
-import { Component, OnInit, Output, EventEmitter,ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter, ViewEncapsulation } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { MessageService } from 'primeng/api';
-import { FormModel } from '../form-model';
-import { FormControl } from '@angular/forms';
+import { Formulario } from '../formulario';
+
 import { FormService } from '../form.service';
 // import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 
@@ -10,7 +10,7 @@ import { FormService } from '../form.service';
     selector: 'app-form-steps',
     templateUrl: './form-steps.component.html',
 
-    providers: [MessageService,FormService],
+    providers: [MessageService, FormService],
     styleUrls: ['./form-steps.component.css'],
     encapsulation: ViewEncapsulation.None
 })
@@ -19,16 +19,22 @@ export class FormStepsComponent {
     value: number = 0;
     activeIndex: number = 1;
 
-    subscription: any;
+   
 
 
-    @Output() public onAtualizarInfo = new EventEmitter();
 
-    constructor(public messageService: MessageService,public formService: FormService) { }
+    constructor(public messageService: MessageService, public formService: FormService) {
+       
+     
+    }
 
 
 
     ngOnInit() {
+
+
+        // console.log(this.formulario)
+
         this.items = [{
             label: 'Estufa',
             routerLink: 'estufa'
@@ -48,9 +54,6 @@ export class FormStepsComponent {
         ];
     }
 
-    ngOnDestroy() {
-        if (this.subscription) {
-            this.subscription.unsubscribe();
-        }}
+
 
 }

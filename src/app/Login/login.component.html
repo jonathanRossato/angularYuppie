@@ -14,12 +14,12 @@
             </ng-template>
             <div class="field grid">
                 <label for="emailLogin" class="block text-900 font-medium mb-2">Email</label>
-                <input id="emailLogin" type="text" pInputText class="block text-900 font-medium w-full mb-3">
+                <input id="emailLogin" [(ngModel)]="emailLogin" type="text" pInputText class="block text-900 font-medium w-full mb-3">
             </div>
         
             <div class="field grid">
                 <label for="senhaLogin" class="block text-900 font-medium mb-2">Senha</label>
-                <input id="senhaLogin" type="password" pInputText class="block text-900 font-medium w-full mb-3">
+                <input id="senhaLogin" [(ngModel)]="senhaLogin" type="password" pInputText class="block text-900 font-medium w-full mb-3">
             </div>
         
             <ng-template pTemplate="footer">

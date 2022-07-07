@@ -22,12 +22,30 @@ export class FormPulsoComponent implements OnInit {
 
   ngOnInit(): void {
     this.primengConfig.ripple = true;
+    this.RecuperarValoresTela();
+  }
+
+
+  RecuperarValoresTela(){
+        let nPulsoTela = window.localStorage.getItem('nPulso')
+    if(nPulsoTela !== "" && nPulsoTela !== undefined && nPulsoTela !== null){       
+      this.pulsos = parseInt(nPulsoTela!);      
+   }
+
+   let tPulsoTela = window.localStorage.getItem('tPulso')
+   if(tPulsoTela !== "" && tPulsoTela !== undefined && tPulsoTela !== null){       
+     this.tempoPulsos = parseInt(tPulsoTela!);      
+  }
   }
 
 
   btnContinuar() {    
     if(this.validarValoresTela( this.pulsos, this.tempoPulsos)){
         this.router.navigate(['/formulario/volume']);}
+  }
+  btnVoltar() {    
+    this.validarValoresTela( this.pulsos, this.tempoPulsos)
+        this.router.navigate(['/formulario/clima']);
   }
 
   validarValoresTela(nPulso: number,tPulso: number){
@@ -37,15 +55,26 @@ export class FormPulsoComponent implements OnInit {
     if(nPulso === 0){
       erro = true;
     this.messageService.add({severity:'error', summary: 'Erro', detail: 'Preencha o campo: Número de Pulsos!'})}
-
+    else{
+      this.set('nPulso',nPulso)     
+    }
+    
 
     if(tPulso === 0){
       erro = true;
     this.messageService.add({severity:'error', summary: 'Erro', detail: 'Preencha o campo: Tempo de Pulsos!'})
     }
-
+    else{
+      this.set('tPulso',tPulso)     
+    }
+    
     return !erro;
 
+  }
+
+
+  set(key: string, value: any) {
+    window.localStorage.setItem(key, JSON.stringify(value));
   }
 
 }

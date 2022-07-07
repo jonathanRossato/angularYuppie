@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import {MessageService} from 'primeng/api';
 import { PrimeNGConfig } from 'primeng/api';
@@ -13,28 +13,46 @@ import { FormService } from '../form.service';
   
 })
 export class FormEstufaComponent implements OnInit {
+  
 
-  valoresSelecionadosEstufa: string[] = []; 
-  dataHora: Date = new Date();
+  public valoresSelecionadosEstufa: string[] = []; 
+  public dataHora: Date = new Date();
   
 
 
-  estufaInformation: any;
-  enviado: boolean = false;
+ 
+  @Output() respostaFamilia = new EventEmitter();
 
 
   constructor(private router: Router,private messageService: MessageService, private primengConfig: PrimeNGConfig, public formService: FormService) {}
 
   ngOnInit(): void {
-    this.estufaInformation = this.formService.getFormularioPreenchido()
     this.primengConfig.ripple = true;
+    this.RecuperarValoresTela();
+  }
+  RecuperarValoresTela(){
+    let estufasTela = window.localStorage.getItem('estufas')
+    if(estufasTela !== "" && estufasTela !== undefined && estufasTela != null){       
+       this.valoresSelecionadosEstufa.push(...estufasTela!.split(','))     
+    }
+    
+
+    let dataH = window.localStorage.getItem('dataHora')
+    if(dataH !== "" && dataH !== undefined){       
+      this.dataHora = new Date(dataH!);      
+   }
   }
 
-
-  btnContinuar() {    
+  btnContinuar() { 
     if(this.validarValoresTela(this.valoresSelecionadosEstufa, this.dataHora)){
+
+      this.set('estufas',this.valoresSelecionadosEstufa)
+      this.set('dataHora',this.dataHora)      
+
         this.router.navigate(['/formulario/clima']);}
   }
+
+  
 
   validarValoresTela(estufas:string[],dataHora: Date){
     if(estufas.length > 0)
@@ -61,5 +79,7 @@ export class FormEstufaComponent implements OnInit {
       return false
   }
   
-
+  set(key: string, value: any) {
+    window.localStorage.setItem(key, value);
+  }
 }
