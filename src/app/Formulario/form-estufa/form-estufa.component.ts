@@ -16,8 +16,8 @@ export class FormEstufaComponent implements OnInit {
 
 
   public valoresSelecionadosEstufa: string[] = [];
-  public dataHora: Date = new Date();
-
+  public dataHora: Date = new Date(Date.now());
+  
 
 
 
@@ -38,7 +38,7 @@ export class FormEstufaComponent implements OnInit {
 
 
     let dataH = window.localStorage.getItem('dataHora')
-    if (dataH !== "" && dataH !== undefined) {
+    if (dataH !== "" && dataH !== undefined && dataH != null) {
       this.dataHora = new Date(dataH!);
     }
   }

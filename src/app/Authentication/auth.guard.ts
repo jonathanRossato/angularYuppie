@@ -13,6 +13,7 @@ constructor(private router: Router){}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
+     
        const autorizado = window.localStorage.getItem('autorizado');
 
       if (autorizado) return true

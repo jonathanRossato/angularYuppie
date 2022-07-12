@@ -60,9 +60,34 @@
             border-radius: 6px;
         }
 
-        .p-button:hover {
-            border-color: var(--green-900) !important;
+        button.p-element.p-inputnumber-button.p-inputnumber-button-down.p-button.p-component {
+            border-color: var(--gray-800) !important;
+            background: var(--gray-800) !important;
+           
         }
+        button.p-element.p-inputnumber-button.p-inputnumber-button-down.p-button.p-component:hover {
+            border-color: var(--gray-900) !important;
+            background: var(--gray-900) !important;
+            box-shadow: 0 0 0 0.1rem var(--gray-900) !important;
+            border-bottom-left-radius: 5px !important;
+            border-bottom-right-radius: 8px !important;
+           
+        }
+
+        button.p-element.p-inputnumber-button.p-inputnumber-button-up.p-button.p-component{
+            border-color: var(--gray-800) !important;
+            background: var(--gray-800) !important;
+        }
+        button.p-element.p-inputnumber-button.p-inputnumber-button-up.p-button.p-component:hover{
+            border-color: var(--gray-900) !important;
+            background: var(--gray-900) !important;
+            box-shadow: 0 0 0 0.1rem var(--gray-900) !important;
+            border-top-left-radius: 5px !important;
+            border-top-right-radius: 8px !important;
+          
+        }
+
+       
 
         .voltar .p-button {
             color: white !important;
@@ -103,7 +128,7 @@
         }
 
         .p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box:hover {
-            border-color: var(--green-900) !important;
+            border-color: var(--green-900) !important;        
         }
 
 
@@ -122,11 +147,29 @@
 
             
         }  
-        div#cardPrincipal {
+        /* div#cardPrincipal {
             height: 36rem;
-        }
+        } */
 
         .border-round.text-white.font-bold.p-3.flex.shadow-8 {
           
             background: linear-gradient(150deg,  var(--green-900), var(--green-700));
         }
+
+
+        .p-ripple .p-ink {
+            background: var(--green-200);         
+        }
+        .p-ripple .p-ink-active{
+           animation-duration: 0.1s ;
+        }
+
+
+        @media only screen and (max-width: 600px) {
+            img.p-image-mask.w-min.h-screen {
+                display: none !important;
+            }
+        }
+
+
+      

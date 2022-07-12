@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EmailValidator } from '@angular/forms';
-import { LoginService } from './login.service';
+import { LoginService, Usuario } from './login.service';
 import { Router } from '@angular/router';
 import { PrimeNGConfig } from 'primeng/api';
 
@@ -13,8 +13,6 @@ export class LoginComponent implements OnInit {
 
   emailLogin: string = '';
   senhaLogin: string = '';
-
-
   constructor(private router: Router, private loginService: LoginService, private primengConfig: PrimeNGConfig) { }
 
   ngOnInit(): void {
@@ -23,38 +21,22 @@ export class LoginComponent implements OnInit {
   }
 
   btnEntrar() {
-    if (this.realizarLogin(this.emailLogin, this.senhaLogin)) {
-      this.router.navigate(['/inicio']);
-    }
-
+    this.BuscarLogin()
   }
-  realizarLogin(email: string, senha: string) {
-    //remover esse parametro após subida da API
 
 
-    if(email == "teste"){
-      localStorage.setItem('autorizado', 'true');
-    }
-
-
-    let auth = false
-    this.router.navigate(['/inicio']);
-    this.loginService.VerificarLogin().subscribe(login => {
-      if (login.autorizado) {
-        auth = true;
+  BuscarLogin() {
+    return this.loginService.VerificarLogin(this.emailLogin, this.senhaLogin).subscribe((data: Usuario) => {
+  
+      let idUsuario = data.idUsuario != undefined? data.idUsuario: '';
+      if (data?.autorizado === true) {
         localStorage.setItem('autorizado', 'true');
+        localStorage.setItem('usuario', JSON.stringify(data));
+        localStorage.setItem('idUsuario', idUsuario.toString());
         this.router.navigate(['/inicio']);
       }
-
-
-    }, err => {
-      console.log("ocorreu um erro!", err);
-    });
-
-    return auth;
+    }, erro => { });
   }
-
-
 
 
 }

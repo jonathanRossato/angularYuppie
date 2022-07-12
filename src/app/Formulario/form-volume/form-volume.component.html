@@ -4,32 +4,30 @@
             Preencha as informações abaixo.
         </ng-template>
         <ng-template pTemplate="subtitle">
-            Em seguida clique no botão de continuar.
+            Em seguida clique no botão para continuar.
         </ng-template>
         <ng-template pTemplate="flex content ">
             <div class="flex-grow-1 formgroup-inline ">
                 <div class="field   ">
                     <label class="font-bold text-center border-round" for=" volumeGrupo">Volume Injetado:</label>
                     <div class="flex text-center border-round ">
-                        <p-inputNumber [(ngModel)]="volumeInjetado" mode="decimal" locale="pt-BR"
-                            [minFractionDigits]="3"></p-inputNumber>
-                        <i class="pi pi-angle-double-down text-green-500  ml-2 mt-2" style="font-size: 2rem"></i>
+                        <p-inputNumber pRipple [(ngModel)]="volumeInjetado" mode="decimal" locale="pt-BR"
+                            [minFractionDigits]="3"[showButtons]="true"></p-inputNumber>
+                        
                     </div>
                 </div>
                 <div class="field   ">
                     <label class="font-bold text-center border-round" for=" volumeGrupo">EC Injetado:</label>
                     <div class="flex text-center border-round ">
-                        <p-inputNumber [(ngModel)]="ecInjetado" mode="decimal" locale="pt-BR" [minFractionDigits]="1">
-                        </p-inputNumber>
-                        <i class="pi pi-angle-double-down text-green-500  ml-2 mt-2" style="font-size: 2rem"></i>
+                        <p-inputNumber pRipple [(ngModel)]="ecInjetado" mode="decimal" locale="pt-BR" [minFractionDigits]="1"[showButtons]="true"></p-inputNumber>
+                        
                     </div>
                 </div>
                 <div class="field   ">
                     <label class="font-bold text-center border-round" for=" volumeGrupo">PH Injetado:</label>
                     <div class="flex text-center border-round ">
-                        <p-inputNumber [(ngModel)]="phInjetado" mode="decimal" locale="pt-BR" [minFractionDigits]="1">
-                        </p-inputNumber>
-                        <i class="pi pi-angle-double-down text-green-500  ml-2 mt-2" style="font-size: 2rem"></i>
+                        <p-inputNumber pRipple [(ngModel)]="phInjetado" mode="decimal" locale="pt-BR" [minFractionDigits]="1"[showButtons]="true"></p-inputNumber>
+                        
                     </div>
                 </div>
             </div>
@@ -38,24 +36,23 @@
                 <div class="field">
                     <label class="font-bold text-center border-round" for=" volumeGrupo">Volume Drenado:</label>
                     <div class="flex text-center border-round ">
-                        <p-inputNumber [(ngModel)]="volumeDrenado" mode="decimal" locale="pt-BR"
-                            [minFractionDigits]="3"></p-inputNumber>
-                        <i class="pi pi-angle-double-up text-red-500  ml-2 mt-2" style="font-size: 2rem"></i>
+                        <p-inputNumber pRipple  class="btnVermelhoInput "[(ngModel)]="volumeDrenado" mode="decimal" locale="pt-BR"
+                            [minFractionDigits]="3"[showButtons]="true"></p-inputNumber>
+                     
                     </div>
                 </div>
                 <div class="field  ">
                     <label class="font-bold text-center border-round" for=" volumeGrupo">Percentual Drenado:</label>
                     <div class="flex text-center border-round ">
-                        <p-inputNumber [(ngModel)]="percDrenado" prefix="%"></p-inputNumber>
-                        <i class="pi pi-angle-double-up text-red-500  ml-2 mt-2" style="font-size: 2rem"></i>
+                        <p-inputNumber pRipple [(ngModel)]="percDrenado" prefix="%"[showButtons]="true"></p-inputNumber>
+                     
                     </div>
                 </div>
                 <div class="field   ">
                     <label class="font-bold text-center border-round" for=" volumeGrupo">EC Drenado:</label>
                     <div class="flex text-center border-round ">
-                        <p-inputNumber [(ngModel)]="ecDrenado" mode="decimal" locale="pt-BR" [minFractionDigits]="1">
-                        </p-inputNumber>
-                        <i class="pi pi-angle-double-up text-red-500  ml-2 mt-2" style="font-size: 2rem"></i>
+                        <p-inputNumber pRipple [(ngModel)]="ecDrenado" mode="decimal" locale="pt-BR" [minFractionDigits]="1"[showButtons]="true"></p-inputNumber>
+                     
                     </div>
                 </div>
 
@@ -64,9 +61,9 @@
             <div class="field lg:col-offset-4">
                 <label class="font-bold text-center border-round" for=" volumeGrupo">PH Drenado:</label>
                 <div class="flex text-center border-round ">
-                    <p-inputNumber [(ngModel)]="phDrenado" mode="decimal" locale="pt-BR" [minFractionDigits]="1">
+                    <p-inputNumber pRipple [(ngModel)]="phDrenado" mode="decimal" locale="pt-BR" [minFractionDigits]="1" [showButtons]="true">
                     </p-inputNumber>
-                    <i class="pi pi-angle-double-up text-red-500  ml-2 mt-2" style="font-size: 2rem"></i>
+                 
                 </div>
             </div>
 

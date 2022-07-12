@@ -3,6 +3,8 @@ import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
 import { PrimeNGConfig } from 'primeng/api';
 import { FormService } from '../form.service';
+
+
 @Component({
   selector: 'app-form-volume',
   templateUrl: './form-volume.component.html',
@@ -35,12 +37,17 @@ export class FormVolumeComponent implements OnInit {
       this.volumeInjetado = parseInt(volumeInjetado!);
     }
 
+    let volumeDrenado = window.localStorage.getItem('volumeDrenado')
+    if (volumeDrenado !== "" && volumeDrenado !== undefined && volumeInjetado !== null) {
+      this.volumeDrenado = parseInt(volumeDrenado!);
+    }
+
     let percDrenado = window.localStorage.getItem('percDrenado')
     if (percDrenado !== "" && percDrenado !== undefined && percDrenado !== null) {
       this.percDrenado = parseInt(percDrenado!);
     }
     let ecDrenado = window.localStorage.getItem('ecDrenado')
-    if (ecDrenado !== "" && ecDrenado !== undefined && percDrenado !== null) {
+    if (ecDrenado !== "" && ecDrenado !== undefined && ecDrenado !== null) {
       this.ecDrenado = parseInt(ecDrenado!);
     }
     let ecInjetado = window.localStorage.getItem('ecInjetado')
@@ -61,9 +68,13 @@ export class FormVolumeComponent implements OnInit {
 
   btnContinuar() {
     if (this.validarValoresTela(this.volumeInjetado, this.volumeDrenado, this.percDrenado, this.ecDrenado, this.ecInjetado, this.phDrenado, this.phInjetado)) {
-      this.formService.saveForm();
-      alert('salvou');
-      //this.router.navigate(['/inicio']);
+     this.formService.saveForm();
+
+     setTimeout(() => {
+      this.verificarNotificação();
+    }, 2000);
+
+   
     }
   }
   btnVoltar() {
@@ -72,7 +83,12 @@ export class FormVolumeComponent implements OnInit {
   }
 
 
-
+  verificarNotificação(){ 
+    debugger; 
+    if( localStorage.getItem('envio') === 'false'){
+      this.messageService.add({severity:'error', summary: 'Erro', detail: 'Erro ao enviar o formulário!'});
+    }
+  }
 
   validarValoresTela(volumeInjetado: number, volumeDrenado: number, percDrenado: number,
     ecDrenado: number, ecInjetado: number, phDrenado: number, phInjetado: number) {
@@ -129,7 +145,6 @@ export class FormVolumeComponent implements OnInit {
         this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Preencha o campo: ' + element + '!' })
       });
     }
-
 
     return !erro;
   }

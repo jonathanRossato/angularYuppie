@@ -13,4 +13,5 @@
 }
 img.p-image-mask.w-min.h-screen {
     height: 35rem !important;
+    margin-left: 80px;
 }

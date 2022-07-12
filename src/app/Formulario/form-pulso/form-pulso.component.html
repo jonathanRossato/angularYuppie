@@ -15,18 +15,33 @@
 
                 <div class="field align-content-center w-5 ">
                     <label class="font-bold text-center border-round" for="estudaGrupo">Número de Pulsos:</label>
-                    <div class="flex text-center border-round " id="temperaturaG">
-                        <p-inputNumber [(ngModel)]="pulsos" mode="decimal" locale="pt-BR" [minFractionDigits]="1">
+                    <div class="flex text-center border-round " id="temperaturaG">                      
+                    </div>
+                    <!-- <div class="p-inputgroup">
+                        <span class="p-inputgroup-addon"><i class="pi pi-clone text-green-700  ml-2 mt-2" style="font-size: 2rem"></i></span>
+                       <p-inputNumber pRipple [(ngModel)]="pulsos" mode="decimal" locale="pt-BR" [minFractionDigits]="1">
                         </p-inputNumber>
-                        <i class="pi pi-clone text-green-700  ml-2 mt-2" style="font-size: 2rem"></i>
+                               
+                    </div> -->
+                    <div class="p-inputgroup">
+                        
+                       <p-inputNumber pRipple [(ngModel)]="pulsos" mode="decimal" locale="pt-BR"  [minFractionDigits]="1" [showButtons]="true">
+                        </p-inputNumber>      
                     </div>
                 </div>
                 <div class="field align-content-center w-5 ">
                     <label class="font-bold text-center border-round" for="estudaGrupo">Tempo de Pulsos</label>
                     <div class="flex  text-center border-round " id="temperaturaG">
-                        <p-inputNumber [(ngModel)]="tempoPulsos" mode="decimal" locale="pt-BR" [minFractionDigits]="2">
+                        
+                        <!--<p-inputNumber pRipple [(ngModel)]="tempoPulsos" mode="decimal" locale="pt-BR" [minFractionDigits]="2">
                         </p-inputNumber>
-                        <i class="pi pi-chart-bar text-green-700  ml-2 mt-2" style="font-size: 2rem"></i>
+                        <i class="pi pi-chart-bar text-green-700  ml-2 mt-2" style="font-size: 2rem"></i> -->
+
+                        <div class="p-inputgroup">
+                           
+                           <p-inputNumber pRipple [(ngModel)]="tempoPulsos" mode="decimal" locale="pt-BR" [minFractionDigits]="2" [showButtons]="true" pTooltip="Tempo de pulso em segundos.">
+                            </p-inputNumber>
+                        </div>
                     </div>
                 </div>
 
