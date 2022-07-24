@@ -21,11 +21,11 @@ export class InicioComponent implements OnInit {
  
  
    
-    let autorizacao = localStorage.getItem('autorizado');
+    let autorizacao = localStorage.getItem('ativo');
     let idUsuario = localStorage.getItem('idUsuario');
     let mensagemEnvio = localStorage.getItem('envio')
     window.localStorage.clear();    
-    window.localStorage.setItem('autorizado', autorizacao!);
+    window.localStorage.setItem('ativo', autorizacao!);
     window.localStorage.setItem('idUsuario', idUsuario!);
 
     setTimeout(() => {

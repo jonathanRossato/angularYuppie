@@ -1,0 +1,82 @@
+button.p-element.p-ripple.editar {
+    background-color: #5a4245 !important;
+    border-color: darkgray !important;
+}
+.pi.pi-pencil {
+    color: white !important;
+}
+
+.desativado {
+    background-color: rgba(0,0,0,.15) !important;
+}
+
+
+
+
+b.ng-tns-c61-2.p-dropdown.p-component:hover{
+    border-color: var(--gray-900) !important;
+    background: var(--gray-900) !important;
+    box-shadow: 0 0 0 0.1rem var(--gray-900) !important;
+    border-top-left-radius: 5px !important;
+    border-top-right-radius: 8px !important;
+  
+}
+.ng-tns-c61-2.p-dropdown.p-component:hover {
+    border-color: var(--green-900) !important;
+}
+
+
+.ng-tns-c61-2.p-dropdown.p-component:hover {
+    box-shadow:  0 0 0 0.2rem #c1ddcc !important;
+    border-color: #c1ddcc !important;
+}
+
+
+.p-dropdown:not(.p-disabled):hover {
+    box-shadow:  0 0 0 0.2rem #c1ddcc !important;
+    border-color: #c1ddcc !important;
+}
+.p-dropdown:not(.p-disabled).p-focus {
+    box-shadow:  0 0 0 0.2rem #c1ddcc !important;
+    border-color: #c1ddcc !important;
+}
+
+.editor {
+    color: var(--gray-900);
+    background-color: #5a4245 !important;
+    border-color: #2e1e20 !important;
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    border-radius: 6px;
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: inset 0 0 0 0.2rem rgb(65, 61, 62) !important;
+}
+
+
+
+.p-button.btnAdd{
+    color: white !important;
+    background-color: #5a4245 !important;
+    border-color: #2e1e20 !important;
+ 
+}
+
+button.p-element.p-ripple.btnAdd:not(.p-disabled):hover{
+    box-shadow:  0 0 0 0.2rem #c1ddcc !important;
+    border-color: #c1ddcc !important;
+
+}
+
+button.p-element.p-ripple.btnAdd:focus {
+    box-shadow:  0 0 0 0.2rem var(--green-900) !important;
+    border-color: #c1ddcc !important;
+}
+
+.passwordInput{
+ width: 100% !important;
+}
+p-password.p-element.ng-tns-c96-3.p-password-mask.ng-star-inserted{
+    width: 100% !important;
+}

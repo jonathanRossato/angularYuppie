@@ -11,24 +11,25 @@ export class LoginService {
   private actionRoute: string;
   constructor(private http: HttpClient) { 
     // this.actionRoute = environment.URL_API
-    this.actionRoute = "https://yuppieformapi.herokuapp.com/api/Login?";
+    // this.actionRoute = "https://yuppieformapi.herokuapp.com/api/Login?";
+    this.actionRoute = "https://localhost:44325/api/Login/Logar?"
   }
 
-  VerificarLogin(email: string, senha: string): Observable<any> {
-    return this.get(email,senha);
+  VerificarLogin(usuario: string, senha: string): Observable<any> {
+    return this.get(usuario,senha);
   }
 
 
-  get(email: string, senha: string) {
+  get(usuario: string, senha: string) {
     
-    let url = this.actionRoute + 'email='+email+ '&senha='+senha+''
+    let url = this.actionRoute + 'usuario='+usuario+ '&senha='+senha+''
     return this.http
       .get<Usuario>(url, {})
       .pipe(catchError(this.tratarErro));
   }
 
-  async requisicaoLogin(email: string, senha: string) {
-    let rotas = ['https://yuppieformapi.herokuapp.com/api/Login?email='+ email + "&senha=" + senha + ""]
+  async requisicaoLogin(usuario: string, senha: string) {
+    let rotas = ['https://yuppieformapi.herokuapp.com/api/Login?usuario='+ usuario + "&senha=" + senha + ""]
 
   
     await Promise.all(rotas.map(function(url) {
@@ -53,9 +54,12 @@ export interface Usuario {
   idUsuario?: number;
   usuario?: string;
   senha?: string;
+  nome?: string;
+  sobrenome?: string;
+  funcao?: string;
   email?: string;
   ultimoLogin?: Date;
-  autorizado?: boolean;
+  dataCadastro?: Date;
+  ativo?: boolean;
 }
-
 

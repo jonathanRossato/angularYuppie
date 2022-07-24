@@ -36,10 +36,17 @@ import { PasswordModule } from "primeng/password";
 import {InputTextModule} from 'primeng/inputtext';
 import {TooltipModule} from 'primeng/tooltip';
 import {RippleModule} from 'primeng/ripple';
+import {TableModule} from 'primeng/table';
+import {DropdownModule} from 'primeng/dropdown';
+
 import { AuthGuard } from './Authentication/auth.guard';
 
-
-
+//CADASTRO
+import { CadastroUsuarioComponent } from './Admin/cadastro-usuario/cadastro-usuario.component';
+import {DataViewModule} from 'primeng/dataview';
+import {OrganizationChartModule} from 'primeng/organizationchart';
+import {DialogModule} from 'primeng/dialog';
+import { DividerModule } from "primeng/divider";
 @NgModule({
   declarations: [
     AppComponent,    
@@ -51,7 +58,8 @@ import { AuthGuard } from './Authentication/auth.guard';
     FormPulsoComponent,
     FormVolumeComponent,
     LoginComponent,
-    AuthenticationComponent    
+    AuthenticationComponent,
+    CadastroUsuarioComponent    
   ],
   imports: [
     HttpClientModule,
@@ -60,7 +68,8 @@ import { AuthGuard } from './Authentication/auth.guard';
     AppRoutingModule,
     CalendarModule,FormsModule,CheckboxModule,InputNumberModule,StepsModule,ToastModule,
     MessagesModule,MessageModule,CardModule,TabMenuModule,ImageModule,ChipsModule,PasswordModule,InputTextModule,
-    TooltipModule,RippleModule
+    TooltipModule,RippleModule,TableModule,DropdownModule,DataViewModule,OrganizationChartModule,DialogModule,
+    DividerModule
     
   ],  
   bootstrap: [AppComponent],

@@ -12,14 +12,14 @@ import { Router } from '@angular/router';
 
 export class FormService {
   private actionRoute: string;
-  constructor(private http: HttpClient,private router: Router ) { 
+  constructor(private http: HttpClient, private router: Router) {
 
     // this.actionRoute = environment.URL_API
     this.actionRoute = "https://yuppieformapi.herokuapp.com/api/Formulario/Envio?formulario=";
   }
   form: Form;
 
-   saveForm() {
+  saveForm() {
 
     const formulario: Form = {
       estufas: window.localStorage.getItem('estufas')?.toString()!,
@@ -29,8 +29,8 @@ export class FormService {
       umidadeAR: parseFloat(window.localStorage.getItem('umidade')!),
       numeroPulso: parseFloat(window.localStorage.getItem('nPulso')!),
       tempoPulso: parseFloat(window.localStorage.getItem('tPulso')!),
-      volInjetado: parseFloat(window.localStorage.getItem('volumeInjetado')!)* 1000,
-      volDrenado: parseFloat(window.localStorage.getItem('volumeDrenado')!)* 1000,
+      volInjetado: parseFloat(window.localStorage.getItem('volumeInjetado')!) * 1000,
+      volDrenado: parseFloat(window.localStorage.getItem('volumeDrenado')!) * 1000,
       ecInjetado: parseFloat(window.localStorage.getItem('ecInjetado')!),
       ecDrenado: parseFloat(window.localStorage.getItem('ecDrenado')!),
       phDrenado: parseFloat(window.localStorage.getItem('phDrenado')!),
@@ -39,25 +39,26 @@ export class FormService {
       idUsuario: parseInt(window.localStorage.getItem('idUsuario')!)
     }
     var json = JSON.stringify(formulario);
-    
-     this.EnviarFormulario(json).subscribe((data: boolean) => {
-debugger;
-     if (data){
-      localStorage.setItem('envio', 'true');
-      this.router.navigate(['/inicio']);      
-     }
-     else{
-      localStorage.setItem('envio', 'false');  
-     } 
 
-    
-     return data;
-    }, erro => { 
-      
+    this.EnviarFormulario(json).subscribe((data: boolean) => {
+      debugger;
+      if (data) {
+        localStorage.setItem('envio', 'true');
+        this.router.navigate(['/inicio']);
+      }
+      else {
+        localStorage.setItem('envio', 'false');
+      }
+
+
+      return data;
+    }, erro => {
+
       debugger;
       localStorage.setItem('envio', 'false');
-      return false});     
-   
+      return false
+    });
+
   }
 
   private tratarErro(error: Response) {
@@ -70,7 +71,7 @@ debugger;
   }
 
 
-  post(formulario: string) {    
+  post(formulario: string) {
     let url = this.actionRoute + formulario;
     return this.http
       .post<boolean>(url, {})

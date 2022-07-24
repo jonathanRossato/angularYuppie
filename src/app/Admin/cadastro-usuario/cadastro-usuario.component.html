@@ -1,0 +1,204 @@
+<app-tab-menu></app-tab-menu>
+
+<div class="mx-3 my-3 surface-section text-900  shadow-8">
+    <p-table #dt [value]="usuarios" dataKey="idUsuario" editMode="row" styleClass="p-datatable-striped"
+        breakpoint="875px" responsiveLayout="stack" [globalFilterFields]="['nome','usuario','email']">
+
+
+
+        <ng-template pTemplate="caption">
+            <div class="table-header flex justify-content-between flex-wrap ">
+
+                <span class="flex align-items-center justify-content-center w-20rem h-4rem p-input-icon-left ">
+                    <i class=" pi pi-search"></i>
+                    <input pInputText type="text" class="w-full" (input)="applyFilterGlobal($event,'contains')"
+                        placeholder="Procure por Nome,Usuário ou E-mail" />
+                </span>
+                <span class="flex align-items-center justify-content-center  w-20rem h-4rem p-input-icon-left ">
+                    <button pButton pRipple (click)="showDialog()" label="Adicionar Usuário" icon="pi pi-user"
+                        class="btnAdd w-full p-button-rounded  p-button-outlined"></button>
+                </span>
+            </div>
+        </ng-template>
+
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Função</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Status</th>
+                <th>Usuário</th>
+                <th>Senha</th>
+                <th style="width:9rem"></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-usuario let-editing="editing" let-ri="rowIndex">
+            <tr [pEditableRow]="usuario" [ngClass]="{'desativado': usuario.ativo === false}">
+                <td>
+                    <p-cellEditor class="selecao">
+                        <ng-template pTemplate="input">
+                            <!-- <input InputText type="text" [(ngModel)]="usuario.funcao"> -->
+                            <p-dropdown [options]="funcaoValores" [(ngModel)]="usuario.funcao"
+                                [style]="{'width':'100%'}">
+                            </p-dropdown>
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            {{usuario.funcao === 'Usuario'?'Usuário':usuario.funcao}}
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+                <td>
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <input pInputText type="text" [(ngModel)]="usuario.nome" required>
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            {{usuario.nome}}
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+                <td>
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <input pInputText type="email" [email]="true" [(ngModel)]="usuario.email" required>
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            {{usuario.email}}
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+                <td>
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <p-dropdown class="selecao" [options]="statusValores" [(ngModel)]="usuario.ativo"
+                                [style]="{'width':'100%'}"></p-dropdown>
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            {{usuario.ativo == true? 'Ativo':'Desativado'}}
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+                <td>
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <input pInputText type="text" [(ngModel)]="usuario.usuario" required>
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            {{usuario.usuario}}
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+                <td>
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <p-password weakLabel="Baixo" mediumLabel="Médio" strongLabel="Forte"
+                                promptLabel="Preencha a Senha" [toggleMask]="true" [feedback]="true"
+                                [(ngModel)]="usuario.senha">
+                                <ng-template pTemplate="header">
+                                    <h6>Segurança</h6>
+                                </ng-template>
+                                <ng-template pTemplate="footer">
+                                    <p-divider></p-divider>
+                                    <p class="p-mt-2">Sugestão</p>
+                                    <ul class="p-pl-2 p-ml-2 p-mt-0" style="line-height: 1.5">
+                                        <li>Pelo menos um character minúsculo</li>
+                                        <li>Mínimo de 8 characteres</li>
+                                    </ul>
+                                </ng-template>
+                            </p-password>
+
+                        </ng-template>
+                        <ng-template pPassword pTemplate="output">
+                            *******
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+                <td style="text-align:center">
+                    <button *ngIf="!editing" pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil"
+                        (click)="onRowEditInit(usuario)" class="p-button-rounded p-button-text editor"></button>
+                    <button *ngIf="editing" pButton pRipple type="button" pSaveEditableRow icon="pi pi-check"
+                        (click)="onRowEditSave(usuario)"
+                        class=" p-button-rounded p-button-text p-button-success  p-ml-2 editor"></button>
+                    <button *ngIf="editing" pButton pRipple type="button" pCancelEditableRow icon="pi pi-times"
+                        (click)="onRowEditCancel(usuario, ri)"
+                        class="p-button-rounded p-button-text p-button-danger p-mr-2  editor"></button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+
+<p-dialog styleClass="max-w-30rem text-900  shadow-8" header="Adicionar Usuário"
+    class="mx-10 my-10 surface-section text-900  shadow-8 " [(visible)]="display">
+
+    <form (ngSubmit)="criarUsuario(criacaoForm)" #criacaoForm="ngForm" class="formgrid grid flex align-content-center form-group ">
+
+        <div class="field col-12">
+            <label class="font-bold text-center border-round">Função:</label>
+            <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"><i class="pi pi-id-card"></i></span>
+                <p-dropdown   name="funcao" ngModel  #funcao="ngModel" [options]="funcaoValores" [style]="{'width':'100%'}"></p-dropdown>
+            </div>
+        </div>
+
+        <div class="field col-12 ">
+            <label class="font-bold text-center border-round">Nome:</label>
+            <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                <input type="text"   name="nome" ngModel  #fome="ngModel" pInputText placeholder="Nome">
+            </div>
+        </div>
+
+        <div class="field col-12 ">
+            <label class="font-bold text-center border-round">E-mail:</label>
+            <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"><i class="pi pi-at"></i></span>
+                <input type="text"   name="email" ngModel  #email="ngModel" pInputText placeholder="E-mail">
+            </div>
+        </div>
+        <div class="field col-12 ">
+            <label class="font-bold text-center border-round">Status:</label>
+            <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"><i class="pi pi-check"></i></span>
+                <p-dropdown class="selecao"    name="status" ngModel  #status="ngModel" [options]="statusValores" [style]="{'width':'100%'}"></p-dropdown>
+            </div>
+        </div>
+        <div class="field col-12">
+            <label class="font-bold text-center border-round">Usuário:</label>
+            <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                <input type="text"   name="usuario" ngModel  #usuario="ngModel" pInputText placeholder="Usuário">
+            </div>
+        </div>
+
+        <label class=" col-12 font-bold text-start border-round">Senha:</label>
+        <div class=" col-12 p-inputgroup" style="padding:0.5rem">
+            <span class="p-inputgroup-addon"><i class="pi pi-eye-slash"></i></span>
+            <!-- <p-password class="" weakLabel="Baixo" mediumLabel="Médio" strongLabel="Forte"
+                promptLabel="Preencha a Senha" [toggleMask]="true" [feedback]="true">
+                <ng-template pTemplate="header">
+                    <h6>Segurança</h6>
+                </ng-template>
+                <ng-template pTemplate="footer">
+                    <p-divider></p-divider>
+                    <p class="p-mt-2">Sugestão</p>
+                    <ul class="p-pl-2 p-ml-2 p-mt-0" style="line-height: 1.5">
+                        <li>Pelo menos um character minúsculo</li>
+                        <li>Mínimo de 8 characteres</li>
+                    </ul>
+                </ng-template>
+            </p-password> -->
+            <input type="text"  name="senha" ngModel  #usuario="ngModel"  pInputText placeholder="Senha">
+        </div>
+
+
+        <span class="flex align-items-center justify-content-center  w-30rem h-4rem p-input-icon-left ">
+            <button pButton pRipple label="Adicionar" icon="pi pi-user"
+                class="btnAdd w-full p-button-rounded  p-button-outlined" type="submit" [disabled]="!criacaoForm.form.valid"></button>
+        </span>
+    </form>
+
+
+
+</p-dialog>
+<p-toast position="top-right"></p-toast>

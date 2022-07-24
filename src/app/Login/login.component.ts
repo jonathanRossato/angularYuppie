@@ -29,8 +29,9 @@ export class LoginComponent implements OnInit {
     return this.loginService.VerificarLogin(this.emailLogin, this.senhaLogin).subscribe((data: Usuario) => {
   
       let idUsuario = data.idUsuario != undefined? data.idUsuario: '';
-      if (data?.autorizado === true) {
-        localStorage.setItem('autorizado', 'true');
+      if (data?.ativo === true) {
+        debugger;
+        localStorage.setItem('ativo', 'true');
         localStorage.setItem('usuario', JSON.stringify(data));
         localStorage.setItem('idUsuario', idUsuario.toString());
         this.router.navigate(['/inicio']);

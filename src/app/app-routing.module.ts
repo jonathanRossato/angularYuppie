@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CadastroUsuarioComponent } from './Admin/cadastro-usuario/cadastro-usuario.component';
 import { AuthGuard } from './Authentication/auth.guard';
 import { AuthenticationComponent } from './Authentication/authentication.component';
 import { FormClimaComponent } from './Formulario/form-clima/form-clima.component';
@@ -11,45 +12,17 @@ import { InicioComponent } from './Home/inicio/inicio.component';
 import { LoginComponent } from './Login/login.component';
 
 const routes: Routes = [
-
-  // {
-  //   path: 'formulario',
-  //   component: FormStepsComponent,
-  //   children: [
-  //     {
-  //       path: 'clima',
-  //       component: FormClimaComponent
-  //     },
-  //     {
-  //       path: 'volume',
-  //       component: FormVolumeComponent
-  //     }
-
-  //     ,
-  //     {
-  //       path: 'estufa',
-  //       component: FormEstufaComponent
-  //     }
-  //     ,
-  //     {
-  //       path: 'pulso',
-  //       component: FormPulsoComponent
-  //     }
-  //   ]
-  // },  
-  // {
-  //   path: 'inicio',
-  //   component: InicioComponent
-  // }
-  // ,
-  // {
-  //   path: 'login',
-  //   component: LoginComponent
-  // }
-  // ,  
   {
     path: '',
     component: LoginComponent    
+  },
+  {
+    path: 'login',
+    component: LoginComponent    
+  },  {
+    path: 'cadastroUsuario',
+    canActivate: [AuthGuard],
+    component: CadastroUsuarioComponent
   },
   {
     path: 'inicio',

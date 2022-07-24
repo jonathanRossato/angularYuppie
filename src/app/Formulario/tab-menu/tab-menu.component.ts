@@ -16,6 +16,7 @@ export class TabMenuComponent implements OnInit {
       this.items = [
           {label: 'Página Inicial', icon: 'pi pi-fw pi-home',routerLink: ["/inicio"]},
           {label: 'Formulário', icon: 'pi pi-fw pi-book',routerLink: ["/formulario/estufa"]},
+          {label: 'Editor de Usuários', icon: 'pi pi-user-edit',routerLink: ["/cadastroUsuario"]},
          
       ];
   }
