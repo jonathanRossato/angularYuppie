@@ -29,13 +29,15 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css",
               "src/app/Formulario/form-steps/form-steps.component.css",
               "src/app/Formulario/tab-menu/tab-menu.component.css",
               "src/app/Formulario/form-estufa/form-estufa.component.css",
+              
+              "src/app/Admin/cadastro-usuario/cadastro-usuario.component.css",
+
               "src/app/Login/login.component.css",
-
-
               "node_modules/primeicons/primeicons.css",
               "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
               "node_modules/primeng/resources/primeng.min.css",
@@ -110,6 +112,7 @@
               "node_modules/primeflex/primeflex.css"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []

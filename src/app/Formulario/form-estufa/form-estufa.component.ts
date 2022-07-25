@@ -24,9 +24,22 @@ export class FormEstufaComponent implements OnInit {
   @Output() respostaFamilia = new EventEmitter();
 
 
-  constructor(private router: Router, private messageService: MessageService, private primengConfig: PrimeNGConfig, public formService: FormService) { }
+  constructor(private config: PrimeNGConfig,private router: Router, private messageService: MessageService, private primengConfig: PrimeNGConfig, public formService: FormService) { }
 
   ngOnInit(): void {
+    this.config.setTranslation({
+      firstDayOfWeek: 0,
+      dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
+      dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
+      dayNamesMin: ['Do', 'Se', 'Te', 'Qu', 'Qu', 'Se', 'Sa'],
+      monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho',
+        'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+      monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+      today: 'Hoje',
+      clear: 'Limpar'
+  });
+
+
     this.primengConfig.ripple = true;
     this.RecuperarValoresTela();
   }

@@ -2,7 +2,7 @@
 
 <div class="mx-3 my-3 surface-section text-900  shadow-8">
     <p-table #dt [value]="usuarios" dataKey="idUsuario" editMode="row" styleClass="p-datatable-striped"
-        breakpoint="875px" responsiveLayout="stack" [globalFilterFields]="['nome','usuario','email']">
+        breakpoint="1445px" responsiveLayout="stack" [globalFilterFields]="['nome','usuario','email']">
 
 
 
@@ -122,6 +122,9 @@
                     <button *ngIf="editing" pButton pRipple type="button" pCancelEditableRow icon="pi pi-times"
                         (click)="onRowEditCancel(usuario, ri)"
                         class="p-button-rounded p-button-text p-button-danger p-mr-2  editor"></button>
+                        <button *ngIf="editing" pButton pRipple type="button" pCancelEditableRow icon="pi pi-trash"
+                        (click)="onRowExclude(usuario, ri)"
+                        class="p-button-rounded p-button-text p-button-danger p-mr-2  editor"></button>
                 </td>
             </tr>
         </ng-template>
@@ -197,8 +200,7 @@
                 class="btnAdd w-full p-button-rounded  p-button-outlined" type="submit" [disabled]="!criacaoForm.form.valid"></button>
         </span>
     </form>
-
-
-
 </p-dialog>
 <p-toast position="top-right"></p-toast>
+
+<p-confirmDialog acceptLabel="Sim" rejectLabel="Não" message="Deseja realmete excluir este usuário?" header="Aviso" icon="pi pi-exclamation-triangle"></p-confirmDialog>

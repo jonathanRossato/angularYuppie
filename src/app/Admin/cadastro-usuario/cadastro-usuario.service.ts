@@ -42,6 +42,10 @@ export class CadastroUsuarioService {
     return this.post('/Criar',usuario);
   }
 
+  ExcluirUsuario(usuario:Usuario): Observable<any> {
+    return this.post('/Excluir',usuario);
+  }
+
   get() {
     return this.http
       .get<Usuario>(this.actionRoute + '/ListarUsuarios', {})
@@ -54,6 +58,11 @@ export class CadastroUsuarioService {
       .pipe(catchError(this.tratarErro));
   }
 
+  delete(endpoint:string,usuario:Usuario) {
+    return this.http
+  .delete<Usuario>(this.actionRoute+endpoint + '/' + usuario.idUsuario,this.httpOptions)
+  .pipe(catchError(this.tratarErro));
+}
   private tratarErro(error: Response) {
     return throwError(error || 'Erro no servidor')
   }

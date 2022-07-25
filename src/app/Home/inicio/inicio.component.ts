@@ -24,9 +24,13 @@ export class InicioComponent implements OnInit {
     let autorizacao = localStorage.getItem('ativo');
     let idUsuario = localStorage.getItem('idUsuario');
     let mensagemEnvio = localStorage.getItem('envio')
+    let funcaoUsuario = localStorage.getItem('funcao')
+    let usuario  = localStorage.getItem('usuario')
     window.localStorage.clear();    
     window.localStorage.setItem('ativo', autorizacao!);
     window.localStorage.setItem('idUsuario', idUsuario!);
+    window.localStorage.setItem('funcao', funcaoUsuario!);
+    window.localStorage.setItem('usuario', usuario!);
 
     setTimeout(() => {
       this.verificarNotificação(mensagemEnvio!);

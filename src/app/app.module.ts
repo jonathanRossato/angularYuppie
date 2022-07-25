@@ -40,13 +40,15 @@ import {TableModule} from 'primeng/table';
 import {DropdownModule} from 'primeng/dropdown';
 
 import { AuthGuard } from './Authentication/auth.guard';
-
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ConfirmationService} from 'primeng/api';
 //CADASTRO
 import { CadastroUsuarioComponent } from './Admin/cadastro-usuario/cadastro-usuario.component';
 import {DataViewModule} from 'primeng/dataview';
 import {OrganizationChartModule} from 'primeng/organizationchart';
 import {DialogModule} from 'primeng/dialog';
 import { DividerModule } from "primeng/divider";
+
 @NgModule({
   declarations: [
     AppComponent,    
@@ -59,7 +61,7 @@ import { DividerModule } from "primeng/divider";
     FormVolumeComponent,
     LoginComponent,
     AuthenticationComponent,
-    CadastroUsuarioComponent    
+    CadastroUsuarioComponent,        
   ],
   imports: [
     HttpClientModule,
@@ -69,10 +71,10 @@ import { DividerModule } from "primeng/divider";
     CalendarModule,FormsModule,CheckboxModule,InputNumberModule,StepsModule,ToastModule,
     MessagesModule,MessageModule,CardModule,TabMenuModule,ImageModule,ChipsModule,PasswordModule,InputTextModule,
     TooltipModule,RippleModule,TableModule,DropdownModule,DataViewModule,OrganizationChartModule,DialogModule,
-    DividerModule
+    DividerModule,ConfirmDialogModule
     
   ],  
   bootstrap: [AppComponent],
-  providers: [HttpClientModule,LoginService,AuthGuard,FormService]
+  providers: [HttpClientModule,LoginService,AuthGuard,FormService,ConfirmationService]
 })
 export class AppModule { }

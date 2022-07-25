@@ -32,7 +32,8 @@ export class LoginComponent implements OnInit {
       if (data?.ativo === true) {
         debugger;
         localStorage.setItem('ativo', 'true');
-        localStorage.setItem('usuario', JSON.stringify(data));
+        localStorage.setItem('usuario', data.usuario!);
+        localStorage.setItem('funcao', data.funcao!);
         localStorage.setItem('idUsuario', idUsuario.toString());
         this.router.navigate(['/inicio']);
       }
