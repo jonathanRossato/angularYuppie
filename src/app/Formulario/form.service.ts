@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
-import { Form } from './formulario';
+import { Formulario } from './formulario';
 import * as $ from 'jquery';
 import { Router } from '@angular/router';
 
@@ -12,35 +12,41 @@ import { Router } from '@angular/router';
 
 export class FormService {
   private actionRoute: string;
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+     'accept':'text/plain'
+    })
+  };
   constructor(private http: HttpClient, private router: Router) {
-
     // this.actionRoute = environment.URL_API
-    this.actionRoute = "https://yuppieformapi.herokuapp.com/api/Formulario/Envio?formulario=";
+    // this.actionRoute = "https://yuppieformapi.herokuapp.com/api/Formulario/Envio?formulario=";
+    this.actionRoute = "https://localhost:44325/api/Formulario"
   }
-  form: Form;
+  form: Formulario;
 
   saveForm() {
 
-    const formulario: Form = {
-      estufas: window.localStorage.getItem('estufas')?.toString()!,
-      climas: window.localStorage.getItem('climas')?.toString()!,
-      data: new Date(Date.parse(window.localStorage.getItem('dataHora')!.toString()))!,
-      temperatura: parseFloat(window.localStorage.getItem('temperatura')!),
-      umidadeAR: parseFloat(window.localStorage.getItem('umidade')!),
-      numeroPulso: parseFloat(window.localStorage.getItem('nPulso')!),
-      tempoPulso: parseFloat(window.localStorage.getItem('tPulso')!),
-      volInjetado: parseFloat(window.localStorage.getItem('volumeInjetado')!) * 1000,
-      volDrenado: parseFloat(window.localStorage.getItem('volumeDrenado')!) * 1000,
-      ecInjetado: parseFloat(window.localStorage.getItem('ecInjetado')!),
-      ecDrenado: parseFloat(window.localStorage.getItem('ecDrenado')!),
-      phDrenado: parseFloat(window.localStorage.getItem('phDrenado')!),
-      phInjetado: parseFloat(window.localStorage.getItem('phInjetado')!),
-      percDrenado: parseFloat(window.localStorage.getItem('percDrenado')!),
+    const formulario: Formulario = {
+      Estufas: window.localStorage.getItem('estufas')?.toString()!,
+      Climas: window.localStorage.getItem('climas')?.toString()!,
+      DataHora: new Date(Date.parse(window.localStorage.getItem('dataHora')!.toString()))!,
+      Temperatura: parseFloat(window.localStorage.getItem('temperatura')!),
+      Umidade: parseFloat(window.localStorage.getItem('umidade')!),
+      QtdPulsos: parseFloat(window.localStorage.getItem('nPulso')!),
+      TempoPulso: parseFloat(window.localStorage.getItem('tPulso')!),
+      VolInjetado: parseFloat(window.localStorage.getItem('volumeInjetado')!) * 1000,
+      VolDrenado: parseFloat(window.localStorage.getItem('volumeDrenado')!) * 1000,
+      EcInjetado: parseFloat(window.localStorage.getItem('ecInjetado')!),
+      EcDrenado: parseFloat(window.localStorage.getItem('ecDrenado')!),
+      PhDrenado: parseFloat(window.localStorage.getItem('phDrenado')!),
+      PhInjetado: parseFloat(window.localStorage.getItem('phInjetado')!),
+      PercDrenado: parseFloat(window.localStorage.getItem('percDrenado')!),
       idUsuario: parseInt(window.localStorage.getItem('idUsuario')!)
     }
     var json = JSON.stringify(formulario);
 
-    this.EnviarFormulario(json).subscribe((data: boolean) => {
+    this.EnviarFormulario(formulario).subscribe((data: boolean) => {
       debugger;
       if (data) {
         localStorage.setItem('envio', 'true');
@@ -61,20 +67,34 @@ export class FormService {
 
   }
 
+
+
+
   private tratarErro(error: Response) {
     return throwError(error || 'Erro no servidor')
   }
 
+ 
 
-  EnviarFormulario(formulario: string): Observable<any> {
-    return this.post(formulario);
-  }
-
-
-  post(formulario: string) {
-    let url = this.actionRoute + formulario;
-    return this.http
-      .post<boolean>(url, {})
+  post(endpoint: string,formulario: Formulario) {
+    let url = this.actionRoute;
+    return this.http.post<Formulario>(url + endpoint, formulario,this.httpOptions)
       .pipe(catchError(this.tratarErro));
   }
+
+  get(endpoint: string) {
+    let url = this.actionRoute;
+    return this.http
+      .get<Array<Formulario>>(url + endpoint, {})
+      .pipe(catchError(this.tratarErro));
+  }
+
+  EnviarFormulario(formulario: Formulario): Observable<any> {
+    return this.post('/Envio',formulario);
+  }
+
+  BuscaFormularios(){   
+    return this.get('/ListarTodos');
+  }
+
 }

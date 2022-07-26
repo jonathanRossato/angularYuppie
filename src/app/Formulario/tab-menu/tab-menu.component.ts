@@ -28,9 +28,11 @@ export class TabMenuComponent implements OnInit {
           {label: 'Página Inicial', icon: 'pi pi-fw pi-home',routerLink: ["/inicio"]},
           {label: 'Formulário', icon: 'pi pi-fw pi-book',routerLink: ["/formulario/estufa"]},
           {label: 'Editor de Usuários', icon: 'pi pi-user-edit',routerLink: ["/cadastroUsuario"]},
+          {label: 'Relatorios', icon: 'pi pi-chart-pie',style:'',routerLink: ["/relatorio"]},
           {label: 'Sair', icon: 'pi pi-sign-out',style:'', command: (event) => {
             this.Sair();
           }},
+          
          
       ];
   }

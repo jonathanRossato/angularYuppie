@@ -1,0 +1,207 @@
+<app-tab-menu></app-tab-menu>
+<div class="mx-3 my-3 surface-section text-900  shadow-8">
+        <p-table #dt1 [columns]="cols" [value]="formularios" dataKey="idFormulario" [rows]="20" [showCurrentPageReport]="true" [rowsPerPageOptions]="[20,25,50]" 
+    [paginator]="true"  currentPageReportTemplate="Mostrando {first} de {last} de um total de {totalRecords} registros"   [globalFilterFields]="['estufas','climas']"
+    styleClass="p-datatable-gridlines p-datatable-striped"    [scrollable]="true"  scrollWidth="400px"   [resizableColumns]="true"  
+    responsiveLayout="scroll" >
+    <ng-template pTemplate="caption">
+      
+    </ng-template>
+
+        <ng-template pTemplate="caption">
+            <div class="p-d-flex">
+                <button type="button" pButton pRipple icon="pi pi-file" (click)="dt1.exportCSV()" class="mr-5 ml-1" pTooltip="CSV" tooltipPosition="bottom"></button>
+                <!-- <button type="button" pButton pRipple icon="pi pi-file-excel" (click)="exportExcel()" class="p-button-success mr-5 ml-1"  pTooltip="XLS" tooltipPosition="bottom"></button> -->
+                <span class=" p-input-icon-left p-ml-auto">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" (input)="applyFilterGlobal($event,'contains')"
+                        placeholder="Filtre por Estufas ou Climas" />
+                </span>                
+            </div>
+            
+        </ng-template>
+        <ng-template pTemplate="header" class="headerRelatorio">
+            <tr>
+              
+                <th  style="flex-basis:25%">
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        Id Formulario
+                        <p-columnFilter type="text" field="idFormulario" display="menu"></p-columnFilter>
+                    </div>
+                </th>
+                <th  style="flex-basis:25%">
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        Id Usuario
+                        <p-columnFilter type="text" field="idUsuario" display="menu"></p-columnFilter>
+                    </div>
+                </th>
+                <th  style="flex-basis:25%">
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        Estufas
+                        <p-columnFilter type="text" field="estufas" display="menu"></p-columnFilter>
+                    </div>
+                </th>
+
+                <th  style="flex-basis:25%">
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        Climas
+                        <p-columnFilter type="text" field="climas" display="menu"></p-columnFilter>
+                    </div>
+                </th>
+                <th  style="flex-basis:25%">
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        Temperatura
+                        <p-columnFilter type="text" field="temperatura" display="menu"></p-columnFilter>
+                    </div>
+                </th>
+                <th  style="flex-basis:25%">
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        Umidade do Ar
+                        <p-columnFilter type="text" field="umidade" display="menu"></p-columnFilter>
+                    </div>
+                </th>
+
+                <th  style="flex-basis:25%">
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        Qtd Pulsos
+                        <p-columnFilter type="text" field="qtdPulsos" display="menu"></p-columnFilter>
+                    </div>
+                </th>
+
+                <th  style="flex-basis:25%">
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        Tempo Pulsos
+                        <p-columnFilter type="text" field="tempoPulso" display="menu"></p-columnFilter>
+                    </div>
+                </th>
+
+                <th  style="flex-basis:25%">
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        Volume Injetado
+                        <p-columnFilter type="text" field="volumeInjetado" display="menu"></p-columnFilter>
+                    </div>
+                </th>
+
+                <th  style="flex-basis:25%">
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        Volume Drenado
+                        <p-columnFilter type="text" field="volumeDrenado" display="menu"></p-columnFilter>
+                    </div>
+                </th>
+
+                <th  style="flex-basis:25%">
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        EC Injetado
+                        <p-columnFilter type="text" field="ecInjetado" display="menu"></p-columnFilter>
+                    </div>
+                </th>
+
+
+                <th  style="flex-basis:25%">
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        EC Drenado
+                        <p-columnFilter type="text" field="ecDrenado" display="menu"></p-columnFilter>
+                    </div>
+                </th>
+
+                <th  style="flex-basis:25%">
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        PH Injetado
+                        <p-columnFilter type="text" field="phInjetado" display="menu"></p-columnFilter>
+                    </div>
+                </th>
+                <th  style="flex-basis:25%">
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        PH Drenado
+                        <p-columnFilter type="text" field="phDrenado" display="menu"></p-columnFilter>
+                    </div>
+                </th>
+                <th  style="flex-basis:25%">
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        % Drenado
+                        <p-columnFilter type="text" field="percDrenado" display="menu"></p-columnFilter>
+                    </div>
+                </th>
+                <th  style="flex-basis:25%">
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        Data Hora
+                        <p-columnFilter type="text" field="dataHora" display="menu"></p-columnFilter>
+                    </div>
+                </th>
+
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-formularios let-expanded="expanded">
+            <tr>
+               
+                <td>
+                    {{formularios.idFormulario}}
+                </td>
+
+                <td (onclick)="mostrarNome()">
+                    {{formularios.idUsuario}}
+                </td>
+                <td>
+                    {{formularios.estufas}}
+                </td>
+                <td>
+                    {{formularios.climas}}
+                </td>
+                <td>
+                    {{formularios.temperatura}}
+                </td>
+                <td>
+                    {{formularios.umidade}}
+                </td>
+                <td>
+                    {{formularios.qtdPulsos}}
+                </td>
+                <td>
+                    {{formularios.tempoPulso}}
+                </td>
+                <td>
+                    {{formularios.volInjetado}}
+                </td>
+                <td>
+                    {{formularios.volDrenado}}
+                </td>
+                <td>
+                    {{formularios.ecInjetado}}
+                </td>
+                <td>
+                    {{formularios.ecDrenado}}
+                </td>
+                <td>
+                    {{formularios.phDrenado}}
+                </td>
+
+                <td>
+                    {{formularios.phInjetado}}
+                </td>
+
+                <td>
+                    {{formularios.percDrenado}}
+                </td>
+
+                <td>
+                    {{formularios.dataHora}}
+                </td>
+
+            </tr>
+        </ng-template>
+
+       
+
+
+        <ng-template pTemplate="emptymessage">
+            <tr>
+                <td colspan="7">Não foram encontrados formulários.</td>
+            </tr>
+        </ng-template>
+    </p-table>
+
+</div>
+
+<p-dialog header="Nome usuario"  [(visible)]="display">
+ TESTE NOME
+</p-dialog>

@@ -1,22 +1,23 @@
 
-export interface Form {
-
+export interface Formulario {
+  idFormulario?: number;
   idUsuario?: number;
-  estufas?: string;
-  climas?: string;
-  temperatura?: number;
-  umidadeAR?: number;
-  numeroPulso?: number;
-  tempoPulso?: number;
-  volInjetado?: number;
-  volDrenado?: number;
-  ecInjetado?: number;
-  ecDrenado?: number;
-  phDrenado?: number;
-  phInjetado?: number;
-  percDrenado?: number;
-  data?: Date;
+  Estufas?: string;
+  Climas?: string;
+  Temperatura?: number;
+  Umidade?: number;
+  QtdPulsos?: number;
+  TempoPulso?: number;
+  VolInjetado?: number;
+  VolDrenado?: number;
+  EcInjetado?: number;
+  EcDrenado?: number;
+  PhDrenado?: number;
+  PhInjetado?: number;
+  PercDrenado?: number;
+  DataHora?: Date;
 
+nomeUsuario?:string;
 }
 
 
