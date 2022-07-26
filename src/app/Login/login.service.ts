@@ -11,8 +11,8 @@ export class LoginService {
   private actionRoute: string;
   constructor(private http: HttpClient) { 
     // this.actionRoute = environment.URL_API
-    // this.actionRoute = "https://yuppieformapi.herokuapp.com/api/Login?";
-    this.actionRoute = "https://localhost:44325/api/Login/Logar?"
+    this.actionRoute = "https://yuppieformapi.herokuapp.com/api/Login/Logar?";
+    // this.actionRoute = "https://localhost:44325/api/Login/Logar?"
   }
 
   VerificarLogin(usuario: string, senha: string): Observable<any> {

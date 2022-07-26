@@ -48,6 +48,7 @@ import {DataViewModule} from 'primeng/dataview';
 import {OrganizationChartModule} from 'primeng/organizationchart';
 import {DialogModule} from 'primeng/dialog';
 import { DividerModule } from "primeng/divider";
+import { RelatorioComponent } from './Formulario/relatorio/relatorio.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { DividerModule } from "primeng/divider";
     FormVolumeComponent,
     LoginComponent,
     AuthenticationComponent,
-    CadastroUsuarioComponent,        
+    CadastroUsuarioComponent,
+    RelatorioComponent,        
   ],
   imports: [
     HttpClientModule,

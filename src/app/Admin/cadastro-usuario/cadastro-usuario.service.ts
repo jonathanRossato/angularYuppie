@@ -22,8 +22,8 @@ export class CadastroUsuarioService {
   
   constructor(private http: HttpClient) { 
     // this.actionRoute = environment.URL_API
-    // this.actionRoute = "https://yuppieformapi.herokuapp.com/api/Login/ListarUsuarios";
-    this.actionRoute = "https://localhost:44325/api/Usuario";
+    this.actionRoute = "https://yuppieformapi.herokuapp.com/api/Usuario";
+    // this.actionRoute = "https://localhost:44325/api/Usuario";
 
     
 

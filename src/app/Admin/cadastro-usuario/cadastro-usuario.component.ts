@@ -62,7 +62,7 @@ export class CadastroUsuarioComponent implements OnInit {
 
   }
 
-
+ 
 
   ngOnInit(): void {
     
@@ -73,7 +73,7 @@ export class CadastroUsuarioComponent implements OnInit {
     if(funcaoCache === null || funcaoCache === 'Usuario')
     {
       debugger;
-      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Usuário sem permissão de acesso!' });
+      this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Usuário sem permissão de acesso!' });
      
       this.router.navigate(['/inicio']);
  
@@ -113,7 +113,7 @@ export class CadastroUsuarioComponent implements OnInit {
           if (retorno)
             this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Usuário atualizado!' });
           else {
-            this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Erro ao atualziar o Usuário' });
+            this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Erro ao atualziar o Usuário' });
           }
 
         }, err => {
@@ -125,7 +125,7 @@ export class CadastroUsuarioComponent implements OnInit {
 
       }
       else {
-        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Erro ao atualziar o Usuário' });
+        this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Erro ao atualziar o Usuário' });
       }
     }
   }
@@ -147,7 +147,7 @@ export class CadastroUsuarioComponent implements OnInit {
                   this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Usuário excluído!' });
                   this.usuarios = this.usuarios.filter(u=> u.idUsuario != usuario.idUsuario);}
                 else {
-                  this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Erro ao excluir o usuário' });
+                  this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Erro ao excluir o usuário' });
                 }
         
               }, err => {
@@ -190,7 +190,7 @@ export class CadastroUsuarioComponent implements OnInit {
 
           }
           else {
-            this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Erro ao criar o Usuário' });
+            this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Erro ao criar o Usuário' });
           }
 
         }, err => {
@@ -207,7 +207,7 @@ export class CadastroUsuarioComponent implements OnInit {
       let usuarioVerificado = this.usuarios?.find(t => t.idUsuario == parseInt(idUsuarioCache!))
 
       if (usuarioVerificado !== null && usuarioVerificado?.funcao === 'Usuario') {
-        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Usuário não possui permissão para ' + mensagem + ' !' });
+        this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Usuário não possui permissão para ' + mensagem + ' !' });
         return false;
       }
       else if (usuarioVerificado !== null && (usuarioVerificado?.funcao === 'Desenvolvedor' || usuarioVerificado?.funcao === 'Adminsitrador')) {

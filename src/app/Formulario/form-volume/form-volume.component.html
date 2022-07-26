@@ -12,7 +12,7 @@
                     <label class="font-bold text-center border-round" for=" volumeGrupo">Volume Injetado:</label>
                     <div class="flex text-center border-round ">
                         <p-inputNumber pRipple [(ngModel)]="volumeInjetado" mode="decimal" locale="pt-BR"
-                            [minFractionDigits]="3"[showButtons]="true"></p-inputNumber>
+                        (ngModelChange)="onChangeCalculoVolInjetado(volumeInjetado)" [minFractionDigits]="3"[showButtons]="true"></p-inputNumber>
                         
                     </div>
                 </div>
@@ -37,36 +37,35 @@
                     <label class="font-bold text-center border-round" for=" volumeGrupo">Volume Drenado:</label>
                     <div class="flex text-center border-round ">
                         <p-inputNumber pRipple  class="btnVermelhoInput "[(ngModel)]="volumeDrenado" mode="decimal" locale="pt-BR"
-                            [minFractionDigits]="3"[showButtons]="true"></p-inputNumber>
+                        (ngModelChange)="onChangeCalculoVolDrenado(volumeDrenado)" [minFractionDigits]="3"[showButtons]="true"></p-inputNumber>
                      
                     </div>
-                </div>
-                <div class="field  ">
-                    <label class="font-bold text-center border-round" for=" volumeGrupo">Percentual Drenado:</label>
-                    <div class="flex text-center border-round ">
-                        <p-inputNumber pRipple [(ngModel)]="percDrenado" prefix="%"[showButtons]="true"></p-inputNumber>
-                     
-                    </div>
-                </div>
+                </div>           
                 <div class="field   ">
                     <label class="font-bold text-center border-round" for=" volumeGrupo">EC Drenado:</label>
                     <div class="flex text-center border-round ">
-                        <p-inputNumber pRipple [(ngModel)]="ecDrenado" mode="decimal" locale="pt-BR" [minFractionDigits]="1"[showButtons]="true"></p-inputNumber>
+                        <p-inputNumber pRipple [(ngModel)]="ecDrenado"  mode="decimal" locale="pt-BR" [minFractionDigits]="1"[showButtons]="true"></p-inputNumber>
+                     
+                    </div>
+                </div>
+                <div class="field ">
+                    <label class="font-bold text-center border-round" for=" volumeGrupo">PH Drenado:</label>
+                    <div class="flex text-center border-round ">
+                        <p-inputNumber pRipple [(ngModel)]="phDrenado" mode="decimal" locale="pt-BR" [minFractionDigits]="1" [showButtons]="true">
+                        </p-inputNumber>
                      
                     </div>
                 </div>
 
-
             </div>
-            <div class="field lg:col-offset-4">
-                <label class="font-bold text-center border-round" for=" volumeGrupo">PH Drenado:</label>
+          
+            <div class="field  ">
+                <label class="font-bold text-center border-round" for=" volumeGrupo">Percentual Drenado:</label>
                 <div class="flex text-center border-round ">
-                    <p-inputNumber pRipple [(ngModel)]="phDrenado" mode="decimal" locale="pt-BR" [minFractionDigits]="1" [showButtons]="true">
-                    </p-inputNumber>
+                    <p-inputNumber pRipple class="text-green-700"  [(ngModel)]="percDrenado" prefix="%"[showButtons]="false" [disabled]="true"></p-inputNumber>
                  
                 </div>
             </div>
-
 
         </ng-template>
 

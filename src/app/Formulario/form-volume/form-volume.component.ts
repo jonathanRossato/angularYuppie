@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
 import { PrimeNGConfig } from 'primeng/api';
@@ -12,15 +12,15 @@ import { FormService } from '../form.service';
   providers: [MessageService, FormService]
 })
 export class FormVolumeComponent implements OnInit {
+  @Input() percDrenado: number = 0;
 
-
-  volumeInjetado: number = 0;
-  volumeDrenado: number = 0;
-  percDrenado: number = 0;
-  ecDrenado: number = 0;
-  ecInjetado: number = 0;
-  phDrenado: number = 0;
-  phInjetado: number = 0;
+  volumeInjetado: number;
+  volumeDrenado: number ;
+  
+  ecDrenado: number ;
+  ecInjetado: number ;
+  phDrenado: number;
+  phInjetado: number;
 
   
   constructor(private router: Router, private messageService: MessageService, private primengConfig: PrimeNGConfig, private formService: FormService) { }
@@ -96,43 +96,43 @@ export class FormVolumeComponent implements OnInit {
 
     let erro = false;
 
-    if (volumeInjetado === 0)
+    if (volumeInjetado === 0|| isNaN(volumeInjetado)|| volumeInjetado === undefined || volumeInjetado === null)
       listaCamposErro.push('Volume Injetado');
     else {
       this.set('volumeInjetado', volumeInjetado)
     }
 
-    if (percDrenado === 0)
+    if (percDrenado === 0|| isNaN(percDrenado)|| percDrenado === undefined || percDrenado === null)
       listaCamposErro.push('Percentual Drenado');
     else {
       this.set('percDrenado', percDrenado)
     }
 
-    if (volumeDrenado === 0)
+    if (volumeDrenado === 0|| isNaN(volumeDrenado)|| volumeDrenado === undefined || volumeDrenado === null)
       listaCamposErro.push('Volume Drenado');
     else {
       this.set('volumeDrenado', volumeDrenado)
     }
 
-    if (ecDrenado === 0)
+    if (ecDrenado === 0|| isNaN(ecDrenado)|| ecDrenado === undefined || ecDrenado === null)
       listaCamposErro.push('EC Drenado');
     else {
       this.set('ecDrenado', ecDrenado)
     }
 
-    if (ecInjetado === 0)
+    if (ecInjetado === 0|| isNaN(ecInjetado)|| ecInjetado === undefined || ecInjetado === null)
       listaCamposErro.push('EC Injetado');
     else {
       this.set('ecInjetado', ecInjetado)
     }
 
-    if (phDrenado === 0)
+    if (phDrenado === 0|| isNaN(phDrenado)|| phDrenado === undefined || phDrenado === null)
       listaCamposErro.push('PH Drenado');
     else {
       this.set('phDrenado', phDrenado)
     }
 
-    if (phInjetado === 0)
+    if (phInjetado === 0|| isNaN(phInjetado)|| phInjetado === undefined || phInjetado === null)
       listaCamposErro.push('PH Injetado');
     else {
       this.set('phInjetado', phInjetado)
@@ -153,6 +153,19 @@ export class FormVolumeComponent implements OnInit {
     window.localStorage.setItem(key, value);
   }
 
+ 
+
+  onChangeCalculoVolDrenado(valor: number){    
+this.volumeDrenado = valor;
+    this.percDrenado = (this.volumeInjetado / this.volumeDrenado )
+    if(isNaN(this.percDrenado))this.percDrenado = 0;    
+  }
+
+  onChangeCalculoVolInjetado(valor: number){   
+this.volumeInjetado = valor;
+    this.percDrenado = (this.volumeInjetado / this.volumeDrenado ) 
+    if(isNaN(this.percDrenado))this.percDrenado = 0;
+  }
 }
 
 

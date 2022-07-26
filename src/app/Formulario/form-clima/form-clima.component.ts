@@ -22,17 +22,17 @@ export class FormClimaComponent implements OnInit {
   }
   RecuperarValoresTela(){
     let climasTela = window.localStorage.getItem('climas')
-    if(climasTela !== "" && climasTela !== undefined&& climasTela != null){       
+    if(climasTela !== "" && climasTela !== undefined && climasTela != null){       
        this.valoresClima.push(...climasTela!.split(','))     
     }
 
     let tempTEla = window.localStorage.getItem('temperatura')
-    if(tempTEla !== "" && tempTEla !== undefined && tempTEla !== null){       
+    if(tempTEla !== "" && tempTEla !== undefined && tempTEla !== null && tempTEla !== 'NaN'){       
       this.temperatura = parseInt(tempTEla!);      
    }
 
    let umidadeTela = window.localStorage.getItem('umidade')
-   if(umidadeTela !== "" && umidadeTela !== undefined && umidadeTela !== null){       
+   if(umidadeTela !== "" && umidadeTela !== undefined && umidadeTela !== null && umidadeTela !== 'NaN'){       
      this.umidade = parseInt(umidadeTela!);      
   }
   }
@@ -59,7 +59,8 @@ export class FormClimaComponent implements OnInit {
     }
     
     
-    if(temperatura === 0){
+    if (temperatura === 0|| isNaN(temperatura)|| temperatura === undefined || temperatura === null)
+    {
       erro = true;
     this.messageService.add({severity:'error', summary: 'Erro', detail: 'Preencha o campo: Temperatura!'})}
     else{
@@ -67,7 +68,8 @@ export class FormClimaComponent implements OnInit {
     }
     
 
-    if(umidade === 0){
+    if (umidade === 0|| isNaN(umidade)|| umidade === undefined || umidade === null)
+    {
       erro = true;
     this.messageService.add({severity:'error', summary: 'Erro', detail: 'Preencha o campo: Umidade!'})
     }

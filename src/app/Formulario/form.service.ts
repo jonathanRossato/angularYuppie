@@ -20,8 +20,8 @@ export class FormService {
   };
   constructor(private http: HttpClient, private router: Router) {
     // this.actionRoute = environment.URL_API
-    // this.actionRoute = "https://yuppieformapi.herokuapp.com/api/Formulario/Envio?formulario=";
-    this.actionRoute = "https://localhost:44325/api/Formulario"
+    this.actionRoute = "https://yuppieformapi.herokuapp.com/api/Formulario";
+    // this.actionRoute = "https://localhost:44325/api/Formulario"
   }
   form: Formulario;
 

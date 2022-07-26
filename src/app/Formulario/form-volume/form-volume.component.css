@@ -1,0 +1,4 @@
+
+.disabled {
+    color: var(--gray-900) !important;
+}

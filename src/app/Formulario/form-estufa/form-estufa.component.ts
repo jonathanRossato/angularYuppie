@@ -21,7 +21,7 @@ export class FormEstufaComponent implements OnInit {
 
 
 
-  @Output() respostaFamilia = new EventEmitter();
+
 
 
   constructor(private config: PrimeNGConfig,private router: Router, private messageService: MessageService, private primengConfig: PrimeNGConfig, public formService: FormService) { }
@@ -82,16 +82,6 @@ export class FormEstufaComponent implements OnInit {
     this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Preencha o campo: Estufas!' });
   }
 
-  //TODO: verificar como fazer o snapshot dos valoers ja preenchidos
-  validarValoresAnteriores(valor: string) {
-    if (this.valoresSelecionadosEstufa.some(x => x === valor)) {
-      // this.formService.getFormularioPreenchido = this.personalInformation;
-      return true
-    }
-
-
-    return false
-  }
 
   set(key: string, value: any) {
     window.localStorage.setItem(key, value);

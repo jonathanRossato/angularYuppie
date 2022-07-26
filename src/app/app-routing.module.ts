@@ -8,6 +8,7 @@ import { FormEstufaComponent } from './Formulario/form-estufa/form-estufa.compon
 import { FormPulsoComponent } from './Formulario/form-pulso/form-pulso.component';
 import { FormStepsComponent } from './Formulario/form-steps/form-steps.component';
 import { FormVolumeComponent } from './Formulario/form-volume/form-volume.component';
+import { RelatorioComponent } from './Formulario/relatorio/relatorio.component';
 import { InicioComponent } from './Home/inicio/inicio.component';
 import { LoginComponent } from './Login/login.component';
 
@@ -28,6 +29,10 @@ const routes: Routes = [
     path: 'inicio',
     canActivate: [AuthGuard],
     component: InicioComponent
+  },{
+    path: 'relatorio',
+    canActivate: [AuthGuard],
+    component: RelatorioComponent
   },
   {
     path: 'formulario',
