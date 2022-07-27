@@ -90,7 +90,7 @@
                 </td>
                 <td>
                     <p-cellEditor>
-                        <ng-template pTemplate="input">
+                        <ng-template  pTemplate="input">
                             <p-password weakLabel="Baixo" mediumLabel="Médio" strongLabel="Forte"
                                 promptLabel="Preencha a Senha" [toggleMask]="true" [feedback]="true"
                                 [(ngModel)]="usuario.senha">
@@ -131,8 +131,9 @@
     </p-table>
 </div>
 
-<p-dialog styleClass="max-w-30rem text-900  shadow-8" header="Adicionar Usuário"
-    class="mx-10 my-10 surface-section text-900  shadow-8 " [(visible)]="display">
+<p-dialog styleClass="max-w-30rem text-900  shadow-8"  header="Adicionar Usuário"
+    class="mx-10 my-10 surface-section text-900  shadow-8 " [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '50vw'}">
+    [(visible)]="display">
 
     <form (ngSubmit)="criarUsuario(criacaoForm)" #criacaoForm="ngForm" class="formgrid grid flex align-content-center form-group ">
 

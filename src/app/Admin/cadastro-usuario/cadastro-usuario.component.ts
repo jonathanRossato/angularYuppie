@@ -30,7 +30,7 @@ export class CadastroUsuarioComponent implements OnInit {
   funcaoValores: SelectItem[];
   display: boolean = false;
   usuarioCriacao: Usuario;
-
+  displayEdit: boolean = false;
   constructor(private router: Router, private messageService: MessageService, private cadastroUsuario: CadastroUsuarioService, private primengConfig: PrimeNGConfig,private confirmationService: ConfirmationService) {
     this.statusValores = [
       {
@@ -97,9 +97,10 @@ export class CadastroUsuarioComponent implements OnInit {
 
     }
   };
-  onRowEditInit(usuario: Usuario) {
-    if (usuario.idUsuario != undefined)
-      this.usuariosClone[usuario.idUsuario] = { ...usuario };
+  onRowEditInit(usuario: Usuario) {   
+     
+      if (usuario.idUsuario != undefined)
+      this.usuariosClone[usuario.idUsuario] = { ...usuario };  
   }
 
   onRowEditSave(usuario: Usuario) {
@@ -201,7 +202,7 @@ export class CadastroUsuarioComponent implements OnInit {
   }
 
   VerificarNivelUsuario(mensagem: string) {
-    debugger;
+    
     let idUsuarioCache = window.localStorage.getItem('idUsuario');
     if (idUsuarioCache != null) {
       let usuarioVerificado = this.usuarios?.find(t => t.idUsuario == parseInt(idUsuarioCache!))
@@ -216,6 +217,20 @@ export class CadastroUsuarioComponent implements OnInit {
 
     }
     return false;
+  }
+
+  VerificarUsuarioEditar(){
+    let funcaoCache = window.localStorage.getItem('funcao');
+    if(funcaoCache === null || funcaoCache === 'Usuario')
+    {
+      debugger;
+      this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Usuário sem permissão de acesso!' });
+     
+     
+     this.displayEdit = false;
+     
+    }
+    this.displayEdit = true;
   }
 }
 

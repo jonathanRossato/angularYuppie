@@ -30,7 +30,7 @@ export class FormService {
     const formulario: Formulario = {
       Estufas: window.localStorage.getItem('estufas')?.toString()!,
       Climas: window.localStorage.getItem('climas')?.toString()!,
-      DataHora: new Date(Date.parse(window.localStorage.getItem('dataHora')!.toString()))!,
+      dataHora: new Date(Date.parse(window.localStorage.getItem('dataHora')!.toString()))!,
       Temperatura: parseFloat(window.localStorage.getItem('temperatura')!),
       Umidade: parseFloat(window.localStorage.getItem('umidade')!),
       QtdPulsos: parseFloat(window.localStorage.getItem('nPulso')!),

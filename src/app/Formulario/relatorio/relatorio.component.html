@@ -3,14 +3,14 @@
         <p-table #dt1 [columns]="cols" [value]="formularios" dataKey="idFormulario" [rows]="20" [showCurrentPageReport]="true" [rowsPerPageOptions]="[20,25,50]" 
     [paginator]="true"  currentPageReportTemplate="Mostrando {first} de {last} de um total de {totalRecords} registros"   [globalFilterFields]="['estufas','climas']"
     styleClass="p-datatable-gridlines p-datatable-striped"    [scrollable]="true"  scrollWidth="400px"   [resizableColumns]="true"  
-    responsiveLayout="scroll" >
+    responsiveLayout="stack" >
     <ng-template pTemplate="caption">
       
     </ng-template>
 
         <ng-template pTemplate="caption">
             <div class="p-d-flex">
-                <button type="button" pButton pRipple icon="pi pi-file" (click)="dt1.exportCSV()" class="mr-5 ml-1" pTooltip="CSV" tooltipPosition="bottom"></button>
+                <button type="button" pButton pRipple icon="pi pi-file" (click)="dt1.exportCSV()" class="sm:mr-0 ml-0 lg:mr-5 ml-1 lg:mr-5 ml-1 md:mr-5 ml-1" pTooltip="CSV" tooltipPosition="bottom"></button>
                 <!-- <button type="button" pButton pRipple icon="pi pi-file-excel" (click)="exportExcel()" class="p-button-success mr-5 ml-1"  pTooltip="XLS" tooltipPosition="bottom"></button> -->
                 <span class=" p-input-icon-left p-ml-auto">
                     <i class="pi pi-search"></i>
@@ -23,73 +23,79 @@
         <ng-template pTemplate="header" class="headerRelatorio">
             <tr>
               
-                <th  style="flex-basis:25%">
+                <th  style="flex-basis:15%">
                     <div class="p-d-flex p-jc-between p-ai-center">
                         Id Formulario
                         <p-columnFilter type="text" field="idFormulario" display="menu"></p-columnFilter>
                     </div>
                 </th>
-                <th  style="flex-basis:25%">
+                <th  style="flex-basis:15%">
                     <div class="p-d-flex p-jc-between p-ai-center">
                         Id Usuario
                         <p-columnFilter type="text" field="idUsuario" display="menu"></p-columnFilter>
                     </div>
                 </th>
-                <th  style="flex-basis:25%">
+                <th  style="flex-basis:15%">
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        Data
+                        <p-columnFilter type="text" field="dataHora" display="menu"></p-columnFilter>
+                    </div>
+                </th>
+                <th  style="flex-basis:15%">
                     <div class="p-d-flex p-jc-between p-ai-center">
                         Estufas
                         <p-columnFilter type="text" field="estufas" display="menu"></p-columnFilter>
                     </div>
                 </th>
 
-                <th  style="flex-basis:25%">
+                <th  style="flex-basis:15%">
                     <div class="p-d-flex p-jc-between p-ai-center">
                         Climas
                         <p-columnFilter type="text" field="climas" display="menu"></p-columnFilter>
                     </div>
                 </th>
-                <th  style="flex-basis:25%">
+                <th  style="flex-basis:15%">
                     <div class="p-d-flex p-jc-between p-ai-center">
                         Temperatura
                         <p-columnFilter type="text" field="temperatura" display="menu"></p-columnFilter>
                     </div>
                 </th>
-                <th  style="flex-basis:25%">
+                <th  style="flex-basis:15%">
                     <div class="p-d-flex p-jc-between p-ai-center">
                         Umidade do Ar
                         <p-columnFilter type="text" field="umidade" display="menu"></p-columnFilter>
                     </div>
                 </th>
 
-                <th  style="flex-basis:25%">
+                <th  style="flex-basis:15%">
                     <div class="p-d-flex p-jc-between p-ai-center">
                         Qtd Pulsos
                         <p-columnFilter type="text" field="qtdPulsos" display="menu"></p-columnFilter>
                     </div>
                 </th>
 
-                <th  style="flex-basis:25%">
+                <th  style="flex-basis:15%">
                     <div class="p-d-flex p-jc-between p-ai-center">
                         Tempo Pulsos
                         <p-columnFilter type="text" field="tempoPulso" display="menu"></p-columnFilter>
                     </div>
                 </th>
 
-                <th  style="flex-basis:25%">
+                <th  style="flex-basis:15%">
                     <div class="p-d-flex p-jc-between p-ai-center">
                         Volume Injetado
                         <p-columnFilter type="text" field="volumeInjetado" display="menu"></p-columnFilter>
                     </div>
                 </th>
 
-                <th  style="flex-basis:25%">
+                <th  style="flex-basis:15%">
                     <div class="p-d-flex p-jc-between p-ai-center">
                         Volume Drenado
                         <p-columnFilter type="text" field="volumeDrenado" display="menu"></p-columnFilter>
                     </div>
                 </th>
 
-                <th  style="flex-basis:25%">
+                <th  style="flex-basis:15%">
                     <div class="p-d-flex p-jc-between p-ai-center">
                         EC Injetado
                         <p-columnFilter type="text" field="ecInjetado" display="menu"></p-columnFilter>
@@ -97,37 +103,31 @@
                 </th>
 
 
-                <th  style="flex-basis:25%">
+                <th  style="flex-basis:15%">
                     <div class="p-d-flex p-jc-between p-ai-center">
                         EC Drenado
                         <p-columnFilter type="text" field="ecDrenado" display="menu"></p-columnFilter>
                     </div>
                 </th>
 
-                <th  style="flex-basis:25%">
+                <th  style="flex-basis:15%">
                     <div class="p-d-flex p-jc-between p-ai-center">
                         PH Injetado
                         <p-columnFilter type="text" field="phInjetado" display="menu"></p-columnFilter>
                     </div>
                 </th>
-                <th  style="flex-basis:25%">
+                <th  style="flex-basis:15%">
                     <div class="p-d-flex p-jc-between p-ai-center">
                         PH Drenado
                         <p-columnFilter type="text" field="phDrenado" display="menu"></p-columnFilter>
                     </div>
                 </th>
-                <th  style="flex-basis:25%">
+                <th  style="flex-basis:15%">
                     <div class="p-d-flex p-jc-between p-ai-center">
                         % Drenado
                         <p-columnFilter type="text" field="percDrenado" display="menu"></p-columnFilter>
                     </div>
-                </th>
-                <th  style="flex-basis:25%">
-                    <div class="p-d-flex p-jc-between p-ai-center">
-                        Data Hora
-                        <p-columnFilter type="text" field="dataHora" display="menu"></p-columnFilter>
-                    </div>
-                </th>
+                </th>               
 
             </tr>
         </ng-template>
@@ -140,6 +140,9 @@
 
                 <td>
                     {{formularios.idUsuario}}
+                </td>
+                <td>
+                    {{formularios.dataHora | date:'dd/MM/yyyy'}}
                 </td>
                 <td>
                     {{formularios.estufas}}
@@ -183,9 +186,7 @@
                     {{formularios.percDrenado}}
                 </td>
 
-                <td>
-                    {{formularios.dataHora}}
-                </td>
+               
 
             </tr>
         </ng-template>

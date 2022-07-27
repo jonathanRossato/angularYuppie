@@ -15,7 +15,7 @@ export interface Formulario {
   PhDrenado?: number;
   PhInjetado?: number;
   PercDrenado?: number;
-  DataHora?: Date;
+  dataHora?: Date;
 
 nomeUsuario?:string;
 }

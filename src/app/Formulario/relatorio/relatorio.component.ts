@@ -74,7 +74,9 @@ export class RelatorioComponent implements OnInit {
   BuscarListaFormularios() {
     this.formService.BuscaFormularios().subscribe(forms => {
       // forms.forEach((name, index) => forms[index].nomeUsuario = this.usuarios.find(u => u.idUsuario == forms[index].idUsuario)?.nome);
-      debugger;
+     
+
+  
       this.formularios = forms;
       return forms;
     }, err => {
@@ -99,7 +101,7 @@ export class RelatorioComponent implements OnInit {
   }
 
   mostrarNome() {
-    debugger;
+
     let teste = '';
     this.usuarioNome = this.usuarios.find(u => u.idUsuario == parseInt(teste))?.nome;
     this.display = true;
@@ -120,6 +122,11 @@ export class RelatorioComponent implements OnInit {
       type: EXCEL_TYPE
     });
     saveAs.saveAs(data, fileName + '_export_' + new Date().getTime() + EXCEL_EXTENSION);
+  }
+
+
+  converterDataHora(data:Date){
+    return data.toLocaleDateString('pt-BR', {timeZone: 'UTC'});
   }
 }
 

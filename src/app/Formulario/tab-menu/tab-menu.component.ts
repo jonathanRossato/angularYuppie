@@ -20,7 +20,10 @@ export class TabMenuComponent implements OnInit {
 
         }
     });
+
+   
 }
+
   items!: MenuItem[];
 
   ngOnInit() {
